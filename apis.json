@@ -1,0 +1,56 @@
+{
+    "name": "Ubuntu",
+    "description": "Ubuntu is an open source software operating system that runs from the desktop, to the cloud, to all your internet connected things.",
+    "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/screen-capture-api\/1192-ubuntu.jpg",
+    "tags": [
+        "have api",
+        "social"
+    ],
+    "created": "2019-12-19",
+    "modified": "2019-12-19",
+    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/ubuntu\/master\/apis.json",
+    "specificationVersion": "0.14",
+    "apis": [
+        {
+            "name": "Ubuntu",
+            "description": null,
+            "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/screen-capture-api\/1192-ubuntu.jpg",
+            "humanURL": "https:\/\/one.ubuntu.com\/developer\/#account-admin-apis",
+            "baseURL": "",
+            "tags": [],
+            "properties": [
+                {
+                    "type": "x-openapi",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/ubuntu-openapi.json"
+                }
+            ]
+        }
+    ],
+    "include": [],
+    "x-common": [
+        {
+            "type": "Website",
+            "url": "https:\/\/one.ubuntu.com\/developer\/#account-admin-apis"
+        },
+        {
+            "type": "Blog",
+            "url": "http:\/\/insights.ubuntu.com\/"
+        },
+        {
+            "type": "Crunchbase",
+            "url": "https:\/\/crunchbase.com\/organization\/ubuntu"
+        },
+        {
+            "type": "Crunchbase",
+            "url": "http:\/\/www.crunchbase.com\/company\/ubuntu"
+        },
+        {
+            "type": "Email",
+            "url": "webmaster@ubuntu.com"
+        },
+        {
+            "type": "Twitter",
+            "url": "https:\/\/twitter.com\/ubuntu"
+        }
+    ]
+}
