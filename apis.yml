@@ -3,7 +3,7 @@ description: Collection of APIs and services provided by Canonical for Ubuntu an
 image: https://assets.ubuntu.com/v1/29985a98-ubuntu-logo32.png
 url: https://ubuntu.com
 created: '2024-01-15'
-modified: '2024-01-15'
+modified: '2026-03-16'
 apis:
 - name: Launchpad API
   description: REST API for Launchpad, Ubuntu's project hosting and collaboration platform
@@ -142,9 +142,8 @@ apis:
   - type: RSS
     url: https://ubuntu.com/security/notices/rss.xml
 maintainers:
-- name: Canonical Ltd.
-  email: support@canonical.com
-  url: https://canonical.com
+  - FN: Kin Lane
+    email: kin@apievangelist.com
 tags:
 - linux
 - ubuntu
