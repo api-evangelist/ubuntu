@@ -1,0 +1,41 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://api.snapcraft.io/v2/snaps/search?q=media-player&category=video-audio",
+    "headers": {
+      "Snap-Device-Series": "16",
+      "User-Agent": "snapd/2.61.0 series/16"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "results": [
+        {
+          "snap": {
+            "snap-id": "mvo5GBqreWyCNPqQPNMPV3eDgkn5v5hn",
+            "name": "vlc",
+            "title": "VLC",
+            "summary": "The ultimate media player",
+            "description": "VLC is a free and open source cross-platform multimedia player.",
+            "publisher": {
+              "id": "NeoABCFRVDSUfbm",
+              "username": "videolan",
+              "display-name": "VideoLAN"
+            },
+            "license": "GPL-2.0+",
+            "channels": {
+              "stable": {
+                "channel": "stable",
+                "revision": 2287,
+                "version": "3.0.20",
+                "released-at": "2024-01-15T10:00:00Z"
+              }
+            }
+          }
+        }
+      ],
+      "total": 1
+    }
+  }
+}

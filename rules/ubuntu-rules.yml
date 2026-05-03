@@ -1,0 +1,57 @@
+extends: spectral:oas
+rules:
+  ubuntu-operation-id-camel-case:
+    description: Operation IDs must use camelCase.
+    message: "Operation ID '{{value}}' must use camelCase."
+    severity: warn
+    given: "$.paths[*][get,post,put,patch,delete].operationId"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[a-z][a-zA-Z0-9]*$"
+
+  ubuntu-has-tags:
+    description: All operations must have at least one tag.
+    message: Operation is missing tags.
+    severity: warn
+    given: "$.paths[*][get,post,put,patch,delete]"
+    then:
+      field: tags
+      function: truthy
+
+  ubuntu-has-operation-id:
+    description: All operations must have an operationId.
+    message: Operation is missing operationId.
+    severity: error
+    given: "$.paths[*][get,post,put,patch,delete]"
+    then:
+      field: operationId
+      function: truthy
+
+  ubuntu-has-description:
+    description: All operations must have a description.
+    message: Operation is missing a description.
+    severity: warn
+    given: "$.paths[*][get,post,put,patch,delete]"
+    then:
+      field: description
+      function: truthy
+
+  ubuntu-summary-title-case:
+    description: Operation summaries must use Title Case.
+    message: "Summary '{{value}}' should use Title Case."
+    severity: warn
+    given: "$.paths[*][get,post,put,patch,delete].summary"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[A-Z][a-zA-Z0-9 ]+$"
+
+  ubuntu-200-response-content:
+    description: Successful GET responses should define a content schema.
+    message: GET 200 response at '{{path}}' should define content.
+    severity: warn
+    given: "$.paths[*].get.responses.200"
+    then:
+      field: content
+      function: truthy

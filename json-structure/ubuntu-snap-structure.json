@@ -1,0 +1,38 @@
+{
+  "title": "Ubuntu Snap Store API Structure",
+  "description": "JSON structure documentation for the Snap Store API key entities.",
+  "entities": {
+    "Snap": {
+      "description": "A snap package available in the Canonical Snap Store.",
+      "fields": {
+        "snap-id": "string — Unique snap identifier",
+        "name": "string — Package name in kebab-case",
+        "title": "string — Display title",
+        "summary": "string — Short description",
+        "description": "string — Full description",
+        "publisher": "object — Publisher name, username, and ID",
+        "channels": "object — Release channels with revision and version info",
+        "categories": "array — Category names",
+        "license": "string — SPDX license identifier",
+        "media": "array — Screenshots and icon URLs"
+      }
+    },
+    "Channel": {
+      "description": "A snap release channel (stable, candidate, beta, edge).",
+      "fields": {
+        "channel": "string — Channel name",
+        "revision": "integer — Channel revision number",
+        "version": "string — Snap version string",
+        "released-at": "string(date-time) — Release timestamp",
+        "size": "integer — Package size in bytes"
+      }
+    },
+    "Category": {
+      "description": "A category grouping in the Snap Store.",
+      "fields": {
+        "name": "string — Category identifier",
+        "title": "string — Display name"
+      }
+    }
+  }
+}

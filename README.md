@@ -1,143 +1,170 @@
-# Ubuntu APIs (ubuntu)
-Collection of APIs and services provided by Canonical for Ubuntu and related products
+# Ubuntu
 
-**URL:** [Visit APIs.json URL](https://ubuntu.com)
+Collection of APIs and services provided by Canonical for Ubuntu and related products. Includes the Snap Store API for package management, Launchpad API for project hosting and bug tracking, Ubuntu Security CVE API for vulnerability intelligence, and enterprise services including Ubuntu Pro, MAAS, Juju, and Landscape.
 
-## Tags:
+**URL:** [https://ubuntu.com](https://ubuntu.com)
 
- - linux, ubuntu, cloud, containers, devops, security, enterprise
+## Scope
+
+- **Type:** Index
+
+## Tags
+
+Cloud, Containers, Devops, Enterprise, Linux, Security, Ubuntu, Package Management, Open Source
 
 ## Timestamps
 
-- **Created:** 2024-01-15 
-- **Modified:** 2024-01-15 
+- **Created:** 2024-01-15
+- **Modified:** 2026-05-03
 
 ## APIs
 
 ### Launchpad API
-REST API for Launchpad, Ubuntu's project hosting and collaboration platform
+REST API for Launchpad — Ubuntu's project hosting and collaboration platform. OAuth 1.0a auth, WADL-described resources.
 
 **Human URL:** [https://launchpad.net/](https://launchpad.net/)
 
-
-#### Tags:
-
- - bugs, projects, packages, distributions, collaboration
+#### Tags
+Bugs, Collaboration, Distributions, Packages, Projects
 
 #### Properties
-
 - [Documentation](https://launchpad.net/+apidoc/)
 - [Authentication](https://help.launchpad.net/API/Uses)
 - [Wadl](https://api.launchpad.net/devel)
+- [OpenAPI](openapi/ubuntu-launchpad-openapi.yml)
+
+---
 
 ### Ubuntu Pro API
-API for managing Ubuntu Pro subscriptions and entitlements
+API for managing Ubuntu Pro subscriptions, entitlements, and extended security maintenance.
 
 **Human URL:** [https://ubuntu.com/pro](https://ubuntu.com/pro)
 
-
-#### Tags:
-
- - subscriptions, enterprise, support, security
+#### Tags
+Enterprise, Security, Subscriptions, Support
 
 #### Properties
-
 - [Documentation](https://canonical-ubuntu-pro-client.readthedocs-hosted.com/)
-- [Authentication](https://ubuntu.com/pro/dashboard)
+
+---
 
 ### Snap Store API
-API for the Snap Store for publishing and managing snap packages
+API for discovering, searching, and managing snap packages in the Canonical Snap Store.
 
 **Human URL:** [https://snapcraft.io/](https://snapcraft.io/)
 
-
-#### Tags:
-
- - snaps, packages, applications, distribution
+#### Tags
+Applications, Distribution, Packages, Snaps, Package Management
 
 #### Properties
-
 - [Documentation](https://snapcraft.io/docs/snapcraft-store-api)
-- [Dashboard](https://snapcraft.io/account)
-- [Developer Portal](https://snapcraft.io/docs)
+- [OpenAPI](openapi/ubuntu-snap-store-openapi.yml)
+- [Example](examples/ubuntu-snap-search-example.json)
+- [JSONSchema](json-schema/ubuntu-snap-schema.json)
+
+---
 
 ### Ubuntu Archive API
-Access to Ubuntu package repositories and archive information
+Access to Ubuntu package repositories and archive information.
 
 **Human URL:** [https://archive.ubuntu.com/](https://archive.ubuntu.com/)
 
+#### Tags
+Archives, Packages, Releases, Repositories
 
-#### Tags:
-
- - packages, repositories, releases, archives
-
-#### Properties
-
-- [Documentation](https://wiki.ubuntu.com/ArchiveAdministration)
-- [Package Search](https://packages.ubuntu.com/)
+---
 
 ### Landscape API
-Systems management API for Ubuntu servers
+Systems management API for Ubuntu server fleet management and patch automation.
 
 **Human URL:** [https://ubuntu.com/landscape](https://ubuntu.com/landscape)
 
-
-#### Tags:
-
- - management, monitoring, servers, automation
+#### Tags
+Automation, Management, Monitoring, Servers
 
 #### Properties
-
 - [Documentation](https://ubuntu.com/landscape/docs/api)
-- [Authentication](https://ubuntu.com/landscape/docs/api-authentication)
+
+---
 
 ### MAAS API
-Metal as a Service API for physical server provisioning
+Metal as a Service API for bare-metal infrastructure provisioning.
 
 **Human URL:** [https://maas.io/](https://maas.io/)
 
-
-#### Tags:
-
- - infrastructure, provisioning, bare-metal, cloud
+#### Tags
+Bare-Metal, Cloud, Infrastructure, Provisioning
 
 #### Properties
-
 - [Documentation](https://maas.io/docs/api)
-- [GitHub](https://github.com/canonical/maas)
+
+---
 
 ### Juju API
-Application modeling and deployment API
+Application modeling and deployment API for multi-cloud orchestration.
 
 **Human URL:** [https://juju.is/](https://juju.is/)
 
-
-#### Tags:
-
- - orchestration, deployment, devops, automation
+#### Tags
+Automation, Deployment, Devops, Orchestration
 
 #### Properties
-
 - [Documentation](https://juju.is/docs/juju/api)
-- [GitHub](https://github.com/juju/juju)
+
+---
 
 ### Ubuntu CVE API
-API for Ubuntu security notices and CVE information
+API for querying Ubuntu's CVE security database, security notices, and package patch status.
 
 **Human URL:** [https://ubuntu.com/security/cves](https://ubuntu.com/security/cves)
 
-
-#### Tags:
-
- - security, vulnerabilities, cve, patches
+#### Tags
+CVE, Patches, Security, Vulnerabilities
 
 #### Properties
+- [OpenAPI](openapi/ubuntu-cve-openapi.yml)
+- [Example](examples/ubuntu-cve-list-example.json)
+- [JSONSchema](json-schema/ubuntu-cve-schema.json)
 
-- [Documentation](https://ubuntu.com/security/api)
-- [RSS](https://ubuntu.com/security/notices/rss.xml)
+---
+
+## Artifacts
+
+### OpenAPI Specifications
+| File | Description |
+|------|-------------|
+| [openapi/ubuntu-launchpad-openapi.yml](openapi/ubuntu-launchpad-openapi.yml) | Launchpad REST API |
+| [openapi/ubuntu-snap-store-openapi.yml](openapi/ubuntu-snap-store-openapi.yml) | Snap Store Devices API |
+| [openapi/ubuntu-cve-openapi.yml](openapi/ubuntu-cve-openapi.yml) | Ubuntu Security CVE API |
+
+### Naftiko Capabilities
+| File | Description |
+|------|-------------|
+| [capabilities/package-and-security-management.yaml](capabilities/package-and-security-management.yaml) | Snap Store + CVE combined workflow (5 tools) |
+
+**Shared definitions:** `capabilities/shared/snap-store.yaml`, `capabilities/shared/security-cve.yaml`
+
+### Rules
+- [rules/ubuntu-rules.yml](rules/ubuntu-rules.yml)
+
+### JSON Schema
+- [json-schema/ubuntu-snap-schema.json](json-schema/ubuntu-snap-schema.json)
+- [json-schema/ubuntu-cve-schema.json](json-schema/ubuntu-cve-schema.json)
+
+### JSON Structure
+- [json-structure/ubuntu-snap-structure.json](json-structure/ubuntu-snap-structure.json)
+
+### JSON-LD
+- [json-ld/ubuntu-context.jsonld](json-ld/ubuntu-context.jsonld)
+
+### Examples
+- [examples/ubuntu-snap-search-example.json](examples/ubuntu-snap-search-example.json)
+- [examples/ubuntu-cve-list-example.json](examples/ubuntu-cve-list-example.json)
+
+### Vocabulary
+- [vocabulary/ubuntu-vocabulary.yml](vocabulary/ubuntu-vocabulary.yml)
 
 ## Maintainers
 
-**FN:** Canonical Ltd.
-
-**Email:** support@canonical.com
+**FN:** Kin Lane
+**Email:** kin@apievangelist.com

@@ -1,0 +1,102 @@
+vocabulary:
+  name: Ubuntu / Canonical API Vocabulary
+  description: >-
+    Domain vocabulary for the Ubuntu and Canonical developer platform covering
+    snap package management, Linux security (CVE/USN), project hosting via Launchpad,
+    and enterprise Ubuntu services.
+  version: "1.0.0"
+  created: "2026-05-03"
+  modified: "2026-05-03"
+  source: https://ubuntu.com
+
+  domains:
+    - name: Snap Packages
+      description: Snap package management and distribution concepts.
+      terms:
+        - term: Snap
+          definition: A self-contained application package that runs on any Linux distribution using Snapd.
+          synonyms: [Snap Package, Snapcraft Package]
+        - term: Snapd
+          definition: The background service managing snap lifecycle on Linux systems.
+          synonyms: [Snap Daemon]
+        - term: Snap Store
+          definition: The Canonical-operated marketplace for discovering and distributing snap packages.
+          synonyms: [Snapcraft Store, Snap Marketplace]
+        - term: Channel
+          definition: A release track for snaps (stable, candidate, beta, edge) from which users install.
+        - term: Revision
+          definition: A specific snap build version within a channel.
+        - term: Track
+          definition: A versioned series within a snap channel for long-term support (e.g., 20/stable).
+        - term: Confinement
+          definition: The security restriction level for a snap (strict, devmode, or classic).
+        - term: Snap Device Series
+          definition: The core snap base series identifier used in API requests (e.g., 16).
+        - term: Publisher
+          definition: The person or organization that publishes a snap to the store.
+
+    - name: Security
+      description: Ubuntu security and vulnerability management concepts.
+      terms:
+        - term: CVE
+          definition: Common Vulnerabilities and Exposures — a publicly known security vulnerability identifier.
+          synonyms: [Common Vulnerability, Security Vulnerability]
+        - term: USN
+          definition: Ubuntu Security Notice — Canonical's official security advisory for Ubuntu.
+          synonyms: [Ubuntu Security Notice, Security Advisory]
+        - term: Priority
+          definition: Ubuntu's risk classification for CVEs (critical, high, medium, low, negligible).
+        - term: CVSS
+          definition: Common Vulnerability Scoring System — a standardized score (0–10) measuring CVE severity.
+        - term: Patch
+          definition: A software update addressing a specific CVE or security vulnerability.
+        - term: Codename
+          definition: Ubuntu release name (e.g., jammy, noble) used to identify affected package versions.
+        - term: ESM
+          definition: Extended Security Maintenance — Canonical's security support beyond standard EOL dates.
+
+    - name: Launchpad
+      description: Launchpad project hosting and collaboration concepts.
+      terms:
+        - term: Launchpad
+          definition: Canonical's web-based project hosting and collaboration platform for open-source projects.
+        - term: Bug Task
+          definition: An instance of a bug report assigned to a specific project or package in Launchpad.
+        - term: PPA
+          definition: Personal Package Archive — a custom apt repository hosted on Launchpad.
+          synonyms: [Personal Package Archive]
+        - term: Branch
+          definition: A version control branch hosted in Launchpad Bazaar or linked Git repository.
+        - term: WADL
+          definition: Web Application Description Language — the machine-readable format for the Launchpad API.
+        - term: Series
+          definition: A major release series for a project or distribution tracked in Launchpad.
+        - term: Source Package
+          definition: A Debian/Ubuntu source package that builds one or more binary packages.
+
+    - name: Ubuntu Enterprise
+      description: Ubuntu Pro and enterprise service concepts.
+      terms:
+        - term: Ubuntu Pro
+          definition: Canonical's commercial subscription providing security and compliance tools for Ubuntu.
+          synonyms: [Ubuntu Advantage]
+        - term: MAAS
+          definition: Metal as a Service — Canonical's bare-metal provisioning platform.
+        - term: Juju
+          definition: Canonical's application modeling and deployment orchestration system.
+        - term: Landscape
+          definition: Canonical's systems management product for Ubuntu server fleets.
+        - term: Snap Refresh
+          definition: The process of updating an installed snap to a newer revision.
+
+  categories:
+    - Package Management
+    - Security
+    - Linux
+    - Open Source
+    - DevOps
+    - Cloud
+    - Enterprise
+    - Containers
+    - Ubuntu
+    - Canonical

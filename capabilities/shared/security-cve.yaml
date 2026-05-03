@@ -1,0 +1,92 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "Ubuntu Security CVE API"
+  description: "API for querying Ubuntu CVE database, security notices, and affected package patches."
+  tags:
+    - Ubuntu
+    - Security
+    - CVE
+    - Vulnerabilities
+    - Canonical
+  created: "2026-05-03"
+  modified: "2026-05-03"
+
+binds:
+  - namespace: env
+    keys: {}
+
+capability:
+  consumes:
+    - type: http
+      namespace: ubuntu-cve
+      baseUri: https://ubuntu.com/security
+      description: "Ubuntu Security CVE API for vulnerability and notice queries."
+      resources:
+        - name: cves
+          path: /cves.json
+          description: "Ubuntu CVE database query."
+          operations:
+            - name: list-cves
+              method: GET
+              description: "Returns a paginated list of CVEs affecting Ubuntu packages."
+              inputParameters:
+                - name: q
+                  in: query
+                  type: string
+                  required: false
+                  description: "Search query for CVE IDs or descriptions."
+                - name: package
+                  in: query
+                  type: string
+                  required: false
+                  description: "Filter by affected package name."
+                - name: priority
+                  in: query
+                  type: string
+                  required: false
+                  description: "Filter by priority level (critical, high, medium, low, negligible)."
+                - name: offset
+                  in: query
+                  type: integer
+                  required: false
+                  description: "Pagination offset."
+                - name: limit
+                  in: query
+                  type: integer
+                  required: false
+                  description: "Number of CVEs per page."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+        - name: notices
+          path: /notices.json
+          description: "Ubuntu Security Notices."
+          operations:
+            - name: list-notices
+              method: GET
+              description: "Returns Ubuntu Security Notices for published vulnerabilities."
+              inputParameters:
+                - name: offset
+                  in: query
+                  type: integer
+                  required: false
+                  description: "Pagination offset."
+                - name: limit
+                  in: query
+                  type: integer
+                  required: false
+                  description: "Number of notices per page."
+                - name: release
+                  in: query
+                  type: string
+                  required: false
+                  description: "Filter by Ubuntu release codename."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."

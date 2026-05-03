@@ -1,0 +1,40 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "ubuntu": "https://ubuntu.com/vocab/",
+    "snap": "https://snapcraft.io/vocab/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+
+    "Snap": "snap:Snap",
+    "Channel": "snap:Channel",
+    "Vulnerability": "schema:SecurityVulnerability",
+    "SecurityNotice": "ubuntu:SecurityNotice",
+    "Bug": "schema:BugReport",
+    "Project": "schema:SoftwareSourceCode",
+    "Person": "schema:Person",
+    "Distribution": "ubuntu:Distribution",
+
+    "name": { "@id": "schema:name", "@type": "xsd:string" },
+    "title": { "@id": "schema:name", "@type": "xsd:string" },
+    "description": { "@id": "schema:description", "@type": "xsd:string" },
+    "summary": { "@id": "schema:abstract", "@type": "xsd:string" },
+    "publisher": { "@id": "schema:publisher", "@type": "@id" },
+    "license": { "@id": "schema:license", "@type": "xsd:string" },
+
+    "snap-id": { "@id": "schema:identifier", "@type": "xsd:string" },
+    "version": { "@id": "schema:softwareVersion", "@type": "xsd:string" },
+    "released-at": { "@id": "schema:datePublished", "@type": "xsd:dateTime" },
+
+    "id": { "@id": "schema:identifier", "@type": "xsd:string" },
+    "priority": { "@id": "ubuntu:priority", "@type": "xsd:string" },
+    "cvss3": { "@id": "ubuntu:cvssScore", "@type": "xsd:double" },
+    "status": { "@id": "schema:status", "@type": "xsd:string" },
+    "published": { "@id": "schema:datePublished", "@type": "xsd:dateTime" },
+    "updated_at": { "@id": "schema:dateModified", "@type": "xsd:dateTime" },
+
+    "display_name": { "@id": "schema:name", "@type": "xsd:string" },
+    "web_link": { "@id": "schema:url", "@type": "@id" },
+    "self_link": { "@id": "schema:identifier", "@type": "@id" }
+  }
+}
