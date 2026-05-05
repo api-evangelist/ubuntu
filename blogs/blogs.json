@@ -1,0 +1,13 @@
+{
+  "repo": "ubuntu",
+  "feeds": [
+    {
+      "source": "https://ubuntu.com/security/notices/rss.xml",
+      "feed_url": "https://ubuntu.com/security/notices/rss.xml",
+      "saved": 10,
+      "title": "Ubuntu security notices"
+    }
+  ],
+  "post_count": 10,
+  "fetched": "2026-05-03T23:37:48Z"
+}
