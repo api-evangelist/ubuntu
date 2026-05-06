@@ -4,219 +4,127 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: Ubuntu
 providerId: ubuntu
 created: '2026-05-04'
-modified: '2026-05-04'
+modified: '2026-05-05'
+reconciled: true
 tags:
-  - Cloud
-  - Containers
-  - Devops
-  - Enterprise
   - Linux
-  - Security
-  - Ubuntu
-  - Package Management
   - Open Source
-description: Machine-readable plans and pricing scaffold for this API provider. Conforms to the API Commons
-  Plans schema. Tier limits and prices are scaffold defaults; replace with provider-published values.
+  - Security
+  - Enterprise
+  - Package Management
+description: Ubuntu Pro is Canonical's commercial subscription overlay on top of Ubuntu LTS. Pricing
+  is published per-machine per-year, with separate Workstation (desktop) and Server tiers, optional 24/7
+  support add-ons, and a free Personal/Community track. Coverage distinguishes infra-only (Main archive,
+  4,700+ packages) from full-stack (Main + Universe, 36,000+ packages).
+sources:
+  - https://ubuntu.com/pricing/pro
+  - https://ubuntu.com/pro/subscribe
 plans:
-  - id: ubuntu-free
-    name: Free
+  - id: ubuntu-pro-personal
+    name: Ubuntu Pro for Personal Use
     type: freemium
-    description: Free entry tier for the Ubuntu API surface. Intended for evaluation, prototyping, and
-      low-volume integrations. Real limits and pricing must be reconciled with the provider's published
-      plan documentation.
+    description: Free Ubuntu Pro for individual / community use. Up to 5 machines for personal use; up
+      to 50 machines for active Ubuntu community members.
     entries:
-      - label: API Requests
-        description: Monthly API request quota across all included endpoints
-        name: api_requests
+      - label: Personal Machines
+        name: personal_machines
         type: quota
-        metric: requests
-        limit: 1000
-        timeFrame: month
+        metric: machine
+        limit: 5
+        timeFrame: year
         geo: global
-        domains:
-          - https://api.launchpad.net/1.0
-          - https://contracts.canonical.com/
-          - https://api.snapcraft.io
-          - https://api.launchpad.net/devel/ubuntu
-          - https://landscape.canonical.com/api/
-          - https://maas.io/docs/api
-          - wss://[controller-address]:17070/api
-          - https://ubuntu.com/security
         unit: 1
         price: '0.00'
         userMultiplied: false
-      - label: Rate Limit
-        description: Maximum requests per minute on the free tier
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
-        limit: 10
-        timeFrame: minute
+      - label: Community Machines
+        name: community_machines
+        type: quota
+        metric: machine
+        limit: 50
+        timeFrame: year
         geo: global
-        domains:
-          - https://api.launchpad.net/1.0
-          - https://contracts.canonical.com/
-          - https://api.snapcraft.io
-          - https://api.launchpad.net/devel/ubuntu
-          - https://landscape.canonical.com/api/
-          - https://maas.io/docs/api
-          - wss://[controller-address]:17070/api
-          - https://ubuntu.com/security
         unit: 1
         price: '0.00'
         userMultiplied: false
     elements:
-      - name: Public Documentation
-      - name: Community Support
-      - name: Sandbox Access
-      - name: Launchpad API
-      - name: Ubuntu Pro API
-      - name: Snap Store API
-      - name: Ubuntu Archive API
-      - name: Landscape API
-      - name: MAAS API
-      - name: Juju API
-      - name: Ubuntu CVE API
-  - id: ubuntu-pro
-    name: Professional
-    type: paid
-    description: Production tier for Ubuntu. Provides higher quotas, priority support, and access to the
-      broader API portfolio. Pricing placeholder; align with the provider's pricing page.
+      - name: Ubuntu Pro Subscription
+      - name: Expanded Security Maintenance
+      - name: Livepatch
+      - name: Personal / Community Use Only
+  - id: ubuntu-pro-workstation
+    name: Ubuntu Pro Desktop / Workstation
+    type: subscription
+    description: Per-workstation Ubuntu Pro subscription for desktop and workstation deployments.
     entries:
-      - label: API Requests
-        description: Monthly API request quota
-        name: api_requests
-        type: quota
-        metric: requests
-        limit: 100000
-        timeFrame: month
+      - label: Workstation (Base)
+        name: workstation_base
+        type: subscription
+        metric: machine
+        limit: 1
+        timeFrame: year
         geo: global
-        domains:
-          - https://api.launchpad.net/1.0
-          - https://contracts.canonical.com/
-          - https://api.snapcraft.io
-          - https://api.launchpad.net/devel/ubuntu
-          - https://landscape.canonical.com/api/
-          - https://maas.io/docs/api
-          - wss://[controller-address]:17070/api
-          - https://ubuntu.com/security
         unit: 1
-        price: TBD
+        price: '$25 per machine per year'
         userMultiplied: false
-      - label: Rate Limit
-        description: Maximum requests per minute on the professional tier
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
-        limit: 100
-        timeFrame: minute
+      - label: Workstation with 24/7 Enterprise Support
+        name: workstation_enterprise_support
+        type: subscription
+        metric: machine
+        limit: 1
+        timeFrame: year
         geo: global
-        domains:
-          - https://api.launchpad.net/1.0
-          - https://contracts.canonical.com/
-          - https://api.snapcraft.io
-          - https://api.launchpad.net/devel/ubuntu
-          - https://landscape.canonical.com/api/
-          - https://maas.io/docs/api
-          - wss://[controller-address]:17070/api
-          - https://ubuntu.com/security
         unit: 1
-        price: '0.00'
-        userMultiplied: false
-      - label: Overage
-        description: Per-request price after monthly quota is exceeded
-        name: overage
-        type: metered
-        metric: requests
-        limit: -1
-        timeFrame: month
-        geo: global
-        domains:
-          - https://api.launchpad.net/1.0
-          - https://contracts.canonical.com/
-          - https://api.snapcraft.io
-          - https://api.launchpad.net/devel/ubuntu
-          - https://landscape.canonical.com/api/
-          - https://maas.io/docs/api
-          - wss://[controller-address]:17070/api
-          - https://ubuntu.com/security
-        unit: 1000
-        price: TBD
+        price: '$300 per machine per year'
         userMultiplied: false
     elements:
-      - name: All Production Endpoints
-      - name: Email Support
-      - name: SLA Targets
-      - name: Webhook Subscriptions
-      - name: Launchpad API
-      - name: Ubuntu Pro API
-      - name: Snap Store API
-      - name: Ubuntu Archive API
-      - name: Landscape API
-      - name: MAAS API
-      - name: Juju API
-      - name: Ubuntu CVE API
-  - id: ubuntu-enterprise
-    name: Enterprise
-    type: enterprise
-    description: Custom-negotiated tier for Ubuntu. Includes dedicated capacity, contractual SLAs, security
-      review, data residency options, and named technical account management.
+      - name: Ubuntu Pro Subscription
+      - name: Expanded Security Maintenance
+      - name: Livepatch
+      - name: Knowledge Base Access (with support add-on)
+      - name: Ubuntu Assurance Program (with support add-on)
+  - id: ubuntu-pro-server
+    name: Ubuntu Pro Server
+    type: subscription
+    description: Per-physical-machine Ubuntu Pro subscription for server deployments. Each physical machine
+      covers unlimited VMs running on it. Optional 24/7 infrastructure or full-stack support tiers.
     entries:
-      - label: API Requests
-        description: Negotiated request volume; -1 indicates uncapped subject to fair use
-        name: api_requests
-        type: quota
-        metric: requests
-        limit: -1
-        timeFrame: month
-        geo: configurable
-        domains:
-          - https://api.launchpad.net/1.0
-          - https://contracts.canonical.com/
-          - https://api.snapcraft.io
-          - https://api.launchpad.net/devel/ubuntu
-          - https://landscape.canonical.com/api/
-          - https://maas.io/docs/api
-          - wss://[controller-address]:17070/api
-          - https://ubuntu.com/security
+      - label: Server (Base, Unlimited VMs)
+        name: server_base
+        type: subscription
+        metric: machine
+        limit: 1
+        timeFrame: year
+        geo: global
         unit: 1
-        price: custom
+        price: '$500 per machine per year'
         userMultiplied: false
-      - label: Rate Limit
-        description: Negotiated burst and steady-state rate
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
-        limit: 1000
-        timeFrame: minute
-        geo: configurable
-        domains:
-          - https://api.launchpad.net/1.0
-          - https://contracts.canonical.com/
-          - https://api.snapcraft.io
-          - https://api.launchpad.net/devel/ubuntu
-          - https://landscape.canonical.com/api/
-          - https://maas.io/docs/api
-          - wss://[controller-address]:17070/api
-          - https://ubuntu.com/security
+      - label: Server with 24/7 Infrastructure Support
+        name: server_infra_support
+        type: subscription
+        metric: machine
+        limit: 1
+        timeFrame: year
+        geo: global
         unit: 1
-        price: custom
+        price: '$1,775 per machine per year'
+        userMultiplied: false
+      - label: Server with 24/7 Full Support
+        name: server_full_support
+        type: subscription
+        metric: machine
+        limit: 1
+        timeFrame: year
+        geo: global
+        unit: 1
+        price: '$3,400 per machine per year'
         userMultiplied: false
     elements:
-      - name: Unlimited / Negotiated Volume
-      - name: 24/7 Dedicated Support
-      - name: Contractual SLA
-      - name: Security & Compliance Review
-      - name: Dedicated Account Manager
-      - name: Custom Data Residency
-      - name: Launchpad API
-      - name: Ubuntu Pro API
-      - name: Snap Store API
-      - name: Ubuntu Archive API
-      - name: Landscape API
-      - name: MAAS API
-      - name: Juju API
-      - name: Ubuntu CVE API
+      - name: Ubuntu Pro Subscription (Main + Universe)
+      - name: Expanded Security Maintenance
+      - name: Livepatch
+      - name: Unlimited VMs per Physical Machine
+      - name: Knowledge Base Access (with support add-on)
+      - name: Ubuntu Assurance Program (with support add-on)
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
