@@ -1,178 +1,305 @@
-naftiko: "1.0.0-alpha1"
-
+naftiko: 1.0.0-alpha2
 info:
-  label: "Ubuntu Package and Security Management"
-  description: >-
-    Workflow capability combining the Snap Store API (package discovery and management)
-    and Ubuntu Security CVE API (vulnerability intelligence). Supports DevOps engineers,
-    system administrators, and security teams managing Ubuntu deployments.
+  label: Ubuntu Package and Security Management
+  description: Workflow capability combining the Snap Store API (package discovery and management) and Ubuntu Security CVE
+    API (vulnerability intelligence). Supports DevOps engineers, system administrators, and security teams managing Ubuntu
+    deployments.
   tags:
-    - Ubuntu
-    - Package Management
-    - Security
-    - Snap
-    - CVE
-    - Canonical
-  created: "2026-05-03"
-  modified: "2026-05-03"
-
+  - Ubuntu
+  - Package Management
+  - Security
+  - Snap
+  - CVE
+  - Canonical
+  created: '2026-05-03'
+  modified: '2026-05-06'
 binds:
-  - namespace: env
-    keys: {}
-
+- namespace: env
+  keys: {}
 capability:
   consumes:
-    - import: snap-store
-      location: ./shared/snap-store.yaml
-    - import: ubuntu-cve
-      location: ./shared/security-cve.yaml
-
+  - type: http
+    namespace: snap-store
+    baseUri: https://api.snapcraft.io
+    description: Snap Store Devices API for snap discovery and management.
+    resources:
+    - name: snap-search
+      path: /v2/snaps/search
+      description: Search for snaps in the Snap Store.
+      operations:
+      - name: search-snaps
+        method: GET
+        description: Search for snaps by name, keyword, or category.
+        inputParameters:
+        - name: q
+          in: query
+          type: string
+          required: false
+          description: Search query string.
+        - name: category
+          in: query
+          type: string
+          required: false
+          description: Filter by snap category.
+        - name: Snap-Device-Series
+          in: header
+          type: string
+          required: true
+          description: 'Snap device series (default: 16).'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: snap-info
+      path: /v2/snaps/info/{snap_name}
+      description: Detailed information about a specific snap.
+      operations:
+      - name: get-snap-info
+        method: GET
+        description: Get detailed information about a snap and its released revisions.
+        inputParameters:
+        - name: snap_name
+          in: path
+          type: string
+          required: true
+          description: The snap package name.
+        - name: Snap-Device-Series
+          in: header
+          type: string
+          required: true
+          description: 'Snap device series (default: 16).'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: snap-categories
+      path: /v2/snaps/categories
+      description: Available snap categories.
+      operations:
+      - name: list-snap-categories
+        method: GET
+        description: Returns all available snap categories in the store.
+        inputParameters:
+        - name: Snap-Device-Series
+          in: header
+          type: string
+          required: true
+          description: 'Snap device series (default: 16).'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  - type: http
+    namespace: ubuntu-cve
+    baseUri: https://ubuntu.com/security
+    description: Ubuntu Security CVE API for vulnerability and notice queries.
+    resources:
+    - name: cves
+      path: /cves.json
+      description: Ubuntu CVE database query.
+      operations:
+      - name: list-cves
+        method: GET
+        description: Returns a paginated list of CVEs affecting Ubuntu packages.
+        inputParameters:
+        - name: q
+          in: query
+          type: string
+          required: false
+          description: Search query for CVE IDs or descriptions.
+        - name: package
+          in: query
+          type: string
+          required: false
+          description: Filter by affected package name.
+        - name: priority
+          in: query
+          type: string
+          required: false
+          description: Filter by priority level (critical, high, medium, low, negligible).
+        - name: offset
+          in: query
+          type: integer
+          required: false
+          description: Pagination offset.
+        - name: limit
+          in: query
+          type: integer
+          required: false
+          description: Number of CVEs per page.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: notices
+      path: /notices.json
+      description: Ubuntu Security Notices.
+      operations:
+      - name: list-notices
+        method: GET
+        description: Returns Ubuntu Security Notices for published vulnerabilities.
+        inputParameters:
+        - name: offset
+          in: query
+          type: integer
+          required: false
+          description: Pagination offset.
+        - name: limit
+          in: query
+          type: integer
+          required: false
+          description: Number of notices per page.
+        - name: release
+          in: query
+          type: string
+          required: false
+          description: Filter by Ubuntu release codename.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
   exposes:
-    - type: rest
-      port: 8080
-      namespace: ubuntu-pkg-security-api
-      description: "Unified REST API for Ubuntu package management and security intelligence."
-      resources:
-        - path: /v1/snaps
-          name: snaps
-          description: "Snap package search and discovery."
-          operations:
-            - method: GET
-              name: search-snaps
-              description: "Search for snap packages in the Snap Store."
-              call: "snap-store.search-snaps"
-              with:
-                q: "rest.q"
-                category: "rest.category"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-
-        - path: /v1/snaps/{snap_name}
-          name: snap
-          description: "Individual snap package details."
-          operations:
-            - method: GET
-              name: get-snap-info
-              description: "Get detailed information about a snap."
-              call: "snap-store.get-snap-info"
-              with:
-                snap_name: "rest.snap_name"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-
-        - path: /v1/snap-categories
-          name: snap-categories
-          description: "Snap Store categories."
-          operations:
-            - method: GET
-              name: list-snap-categories
-              description: "List all available snap categories."
-              call: "snap-store.list-snap-categories"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-
-        - path: /v1/cves
-          name: cves
-          description: "Ubuntu CVE vulnerability database."
-          operations:
-            - method: GET
-              name: list-cves
-              description: "Query CVEs affecting Ubuntu packages."
-              call: "ubuntu-cve.list-cves"
-              with:
-                q: "rest.q"
-                package: "rest.package"
-                priority: "rest.priority"
-                limit: "rest.limit"
-                offset: "rest.offset"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-
-        - path: /v1/security-notices
-          name: security-notices
-          description: "Ubuntu Security Notices."
-          operations:
-            - method: GET
-              name: list-security-notices
-              description: "List Ubuntu Security Notices for vulnerabilities."
-              call: "ubuntu-cve.list-notices"
-              with:
-                release: "rest.release"
-                limit: "rest.limit"
-                offset: "rest.offset"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-
-    - type: mcp
-      port: 9090
-      namespace: ubuntu-pkg-security-mcp
-      transport: http
-      description: "MCP server for AI-assisted Ubuntu package discovery and security analysis."
-      tools:
-        - name: search-snaps
-          description: "Search for snap packages in the Canonical Snap Store."
-          hints:
-            readOnly: true
-            openWorld: true
-          call: "snap-store.search-snaps"
-          with:
-            q: "tools.query"
-            category: "tools.category"
-          outputParameters:
-            - type: object
-              mapping: "$."
-
-        - name: get-snap-details
-          description: "Get detailed information about a specific snap package."
-          hints:
-            readOnly: true
-            openWorld: true
-          call: "snap-store.get-snap-info"
-          with:
-            snap_name: "tools.snap_name"
-          outputParameters:
-            - type: object
-              mapping: "$."
-
-        - name: list-snap-categories
-          description: "List all available Snap Store categories."
-          hints:
-            readOnly: true
-            openWorld: true
-          call: "snap-store.list-snap-categories"
-          outputParameters:
-            - type: object
-              mapping: "$."
-
-        - name: query-ubuntu-cves
-          description: "Query CVEs affecting Ubuntu packages by package name, priority, or keyword."
-          hints:
-            readOnly: true
-            openWorld: true
-          call: "ubuntu-cve.list-cves"
-          with:
-            q: "tools.query"
-            package: "tools.package"
-            priority: "tools.priority"
-            limit: "tools.limit"
-          outputParameters:
-            - type: object
-              mapping: "$."
-
-        - name: list-security-notices
-          description: "List Ubuntu Security Notices for a specific release."
-          hints:
-            readOnly: true
-            openWorld: true
-          call: "ubuntu-cve.list-notices"
-          with:
-            release: "tools.release"
-            limit: "tools.limit"
-          outputParameters:
-            - type: object
-              mapping: "$."
+  - type: rest
+    port: 8080
+    namespace: ubuntu-pkg-security-api
+    description: Unified REST API for Ubuntu package management and security intelligence.
+    resources:
+    - path: /v1/snaps
+      name: snaps
+      description: Snap package search and discovery.
+      operations:
+      - method: GET
+        name: search-snaps
+        description: Search for snap packages in the Snap Store.
+        call: snap-store.search-snaps
+        with:
+          q: rest.q
+          category: rest.category
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/snaps/{snap_name}
+      name: snap
+      description: Individual snap package details.
+      operations:
+      - method: GET
+        name: get-snap-info
+        description: Get detailed information about a snap.
+        call: snap-store.get-snap-info
+        with:
+          snap_name: rest.snap_name
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/snap-categories
+      name: snap-categories
+      description: Snap Store categories.
+      operations:
+      - method: GET
+        name: list-snap-categories
+        description: List all available snap categories.
+        call: snap-store.list-snap-categories
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/cves
+      name: cves
+      description: Ubuntu CVE vulnerability database.
+      operations:
+      - method: GET
+        name: list-cves
+        description: Query CVEs affecting Ubuntu packages.
+        call: ubuntu-cve.list-cves
+        with:
+          q: rest.q
+          package: rest.package
+          priority: rest.priority
+          limit: rest.limit
+          offset: rest.offset
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/security-notices
+      name: security-notices
+      description: Ubuntu Security Notices.
+      operations:
+      - method: GET
+        name: list-security-notices
+        description: List Ubuntu Security Notices for vulnerabilities.
+        call: ubuntu-cve.list-notices
+        with:
+          release: rest.release
+          limit: rest.limit
+          offset: rest.offset
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9090
+    namespace: ubuntu-pkg-security-mcp
+    transport: http
+    description: MCP server for AI-assisted Ubuntu package discovery and security analysis.
+    tools:
+    - name: search-snaps
+      description: Search for snap packages in the Canonical Snap Store.
+      hints:
+        readOnly: true
+        openWorld: true
+      call: snap-store.search-snaps
+      with:
+        q: tools.query
+        category: tools.category
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-snap-details
+      description: Get detailed information about a specific snap package.
+      hints:
+        readOnly: true
+        openWorld: true
+      call: snap-store.get-snap-info
+      with:
+        snap_name: tools.snap_name
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-snap-categories
+      description: List all available Snap Store categories.
+      hints:
+        readOnly: true
+        openWorld: true
+      call: snap-store.list-snap-categories
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: query-ubuntu-cves
+      description: Query CVEs affecting Ubuntu packages by package name, priority, or keyword.
+      hints:
+        readOnly: true
+        openWorld: true
+      call: ubuntu-cve.list-cves
+      with:
+        q: tools.query
+        package: tools.package
+        priority: tools.priority
+        limit: tools.limit
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-security-notices
+      description: List Ubuntu Security Notices for a specific release.
+      hints:
+        readOnly: true
+        openWorld: true
+      call: ubuntu-cve.list-notices
+      with:
+        release: tools.release
+        limit: tools.limit
+      outputParameters:
+      - type: object
+        mapping: $.
