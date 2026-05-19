@@ -1,0 +1,88 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Snap Store Devices API — Metrics
+  description: 'Snap Store Devices API — Metrics. 1 operations. Lead operation: Get Snap Metrics. Self-contained Naftiko capability
+    covering one Ubuntu business surface.'
+  tags:
+  - Ubuntu
+  - Metrics
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    UBUNTU_API_KEY: UBUNTU_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: snap-store-metrics
+    baseUri: https://api.snapcraft.io
+    description: Snap Store Devices API — Metrics business capability. Self-contained, no shared references.
+    resources:
+    - name: v2-metrics
+      path: /v2/metrics
+      operations:
+      - name: getsnapmetrics
+        method: GET
+        description: Get Snap Metrics
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: snap_name
+          in: query
+          type: string
+          description: Filter metrics by snap name.
+        - name: start
+          in: query
+          type: string
+          description: Start date for metrics range.
+        - name: end
+          in: query
+          type: string
+          description: End date for metrics range.
+  exposes:
+  - type: rest
+    namespace: snap-store-metrics-rest
+    port: 8080
+    description: REST adapter for Snap Store Devices API — Metrics. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/v2/metrics
+      name: v2-metrics
+      description: REST surface for v2-metrics.
+      operations:
+      - method: GET
+        name: getsnapmetrics
+        description: Get Snap Metrics
+        call: snap-store-metrics.getsnapmetrics
+        with:
+          snap_name: rest.snap_name
+          start: rest.start
+          end: rest.end
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: snap-store-metrics-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Snap Store Devices API — Metrics. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: get-snap-metrics
+      description: Get Snap Metrics
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: snap-store-metrics.getsnapmetrics
+      with:
+        snap_name: tools.snap_name
+        start: tools.start
+        end: tools.end
+      outputParameters:
+      - type: object
+        mapping: $.

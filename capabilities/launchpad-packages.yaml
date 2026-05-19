@@ -1,0 +1,77 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Launchpad REST API — Packages
+  description: 'Launchpad REST API — Packages. 1 operations. Lead operation: Get Source Package. Self-contained Naftiko capability
+    covering one Ubuntu business surface.'
+  tags:
+  - Ubuntu
+  - Packages
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    UBUNTU_API_KEY: UBUNTU_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: launchpad-packages
+    baseUri: https://api.launchpad.net/1.0
+    description: Launchpad REST API — Packages business capability. Self-contained, no shared references.
+    resources:
+    - name: ubuntu-+source-source_package_name
+      path: /ubuntu/+source/{source_package_name}
+      operations:
+      - name: getsourcepackage
+        method: GET
+        description: Get Source Package
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: source_package_name
+          in: path
+          type: string
+          description: Source package name.
+          required: true
+  exposes:
+  - type: rest
+    namespace: launchpad-packages-rest
+    port: 8080
+    description: REST adapter for Launchpad REST API — Packages. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/ubuntu/source/{source-package-name}
+      name: ubuntu-source-source-package-name
+      description: REST surface for ubuntu-+source-source_package_name.
+      operations:
+      - method: GET
+        name: getsourcepackage
+        description: Get Source Package
+        call: launchpad-packages.getsourcepackage
+        with:
+          source_package_name: rest.source_package_name
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: launchpad-packages-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Launchpad REST API — Packages. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: get-source-package
+      description: Get Source Package
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: launchpad-packages.getsourcepackage
+      with:
+        source_package_name: tools.source_package_name
+      outputParameters:
+      - type: object
+        mapping: $.

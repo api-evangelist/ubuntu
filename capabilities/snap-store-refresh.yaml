@@ -1,0 +1,77 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Snap Store Devices API — Refresh
+  description: 'Snap Store Devices API — Refresh. 1 operations. Lead operation: Refresh Snaps. Self-contained Naftiko capability
+    covering one Ubuntu business surface.'
+  tags:
+  - Ubuntu
+  - Refresh
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    UBUNTU_API_KEY: UBUNTU_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: snap-store-refresh
+    baseUri: https://api.snapcraft.io
+    description: Snap Store Devices API — Refresh business capability. Self-contained, no shared references.
+    resources:
+    - name: v2-snaps-refresh
+      path: /v2/snaps/refresh
+      operations:
+      - name: refreshsnaps
+        method: POST
+        description: Refresh Snaps
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+  exposes:
+  - type: rest
+    namespace: snap-store-refresh-rest
+    port: 8080
+    description: REST adapter for Snap Store Devices API — Refresh. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/v2/snaps/refresh
+      name: v2-snaps-refresh
+      description: REST surface for v2-snaps-refresh.
+      operations:
+      - method: POST
+        name: refreshsnaps
+        description: Refresh Snaps
+        call: snap-store-refresh.refreshsnaps
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: snap-store-refresh-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Snap Store Devices API — Refresh. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: refresh-snaps
+      description: Refresh Snaps
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: snap-store-refresh.refreshsnaps
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

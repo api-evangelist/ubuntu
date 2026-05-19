@@ -1,0 +1,133 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Launchpad REST API — Projects
+  description: 'Launchpad REST API — Projects. 2 operations. Lead operation: List Projects. Self-contained Naftiko capability
+    covering one Ubuntu business surface.'
+  tags:
+  - Ubuntu
+  - Projects
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    UBUNTU_API_KEY: UBUNTU_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: launchpad-projects
+    baseUri: https://api.launchpad.net/1.0
+    description: Launchpad REST API — Projects business capability. Self-contained, no shared references.
+    resources:
+    - name: projects
+      path: /projects
+      operations:
+      - name: listprojects
+        method: GET
+        description: List Projects
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: ws.op
+          in: query
+          type: string
+        - name: q
+          in: query
+          type: string
+          description: Project search query.
+        - name: ws.start
+          in: query
+          type: integer
+        - name: ws.size
+          in: query
+          type: integer
+    - name: project_name
+      path: /{project_name}
+      operations:
+      - name: getproject
+        method: GET
+        description: Get Project
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: project_name
+          in: path
+          type: string
+          description: Launchpad project name.
+          required: true
+  exposes:
+  - type: rest
+    namespace: launchpad-projects-rest
+    port: 8080
+    description: REST adapter for Launchpad REST API — Projects. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/projects
+      name: projects
+      description: REST surface for projects.
+      operations:
+      - method: GET
+        name: listprojects
+        description: List Projects
+        call: launchpad-projects.listprojects
+        with:
+          ws.op: rest.ws.op
+          q: rest.q
+          ws.start: rest.ws.start
+          ws.size: rest.ws.size
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/{project-name}
+      name: project-name
+      description: REST surface for project_name.
+      operations:
+      - method: GET
+        name: getproject
+        description: Get Project
+        call: launchpad-projects.getproject
+        with:
+          project_name: rest.project_name
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: launchpad-projects-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Launchpad REST API — Projects. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: list-projects
+      description: List Projects
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: launchpad-projects.listprojects
+      with:
+        ws.op: tools.ws.op
+        q: tools.q
+        ws.start: tools.ws.start
+        ws.size: tools.ws.size
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-project
+      description: Get Project
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: launchpad-projects.getproject
+      with:
+        project_name: tools.project_name
+      outputParameters:
+      - type: object
+        mapping: $.
