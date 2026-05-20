@@ -6,6 +6,9 @@ image: https://assets.ubuntu.com/v1/29985a98-ubuntu-logo32.png
 url: https://ubuntu.com
 created: '2024-01-15'
 modified: '2026-05-19'
+common:
+  - type: LinkedIn
+    url: https://www.linkedin.com/showcase/ubuntu-linux
 apis:
 - name: Launchpad API
   description: REST API for Launchpad, Ubuntu's project hosting and collaboration platform. Provides access to people, projects,
