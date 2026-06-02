@@ -4,10 +4,15 @@
     {
       "source": "https://ubuntu.com/security/notices/rss.xml",
       "feed_url": "https://ubuntu.com/security/notices/rss.xml",
-      "title": "Ubuntu security notices",
-      "saved": 10
+      "title": "",
+      "saved": 0,
+      "method": "feed"
+    },
+    {
+      "source": "https://ubuntu.com/security/api",
+      "error": "HTTPError"
     }
   ],
-  "post_count": 30,
-  "fetched": "2026-05-17T20:20:35Z"
+  "post_count": 40,
+  "fetched": "2026-06-01T23:35:02Z"
 }
