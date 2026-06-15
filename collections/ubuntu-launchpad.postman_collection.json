@@ -1,0 +1,1204 @@
+{
+  "item": [
+    {
+      "id": "f4ddf28e-4963-4f77-909f-db1217484b47",
+      "name": "People",
+      "description": {
+        "content": "People and team resources",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "889cc064-1a74-4410-86e7-e0d19407a93a",
+          "name": "List People",
+          "request": {
+            "name": "List People",
+            "description": {
+              "content": "Returns a collection of people and teams registered in Launchpad.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "people"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ws.op",
+                  "value": "<string>",
+                  "description": "Named operation to perform on the collection."
+                },
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "Search query string for people."
+                },
+                {
+                  "disabled": false,
+                  "key": "ws.start",
+                  "value": "<integer>",
+                  "description": "Starting offset for pagination."
+                },
+                {
+                  "disabled": false,
+                  "key": "ws.size",
+                  "value": "<integer>",
+                  "description": "Number of items to return."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4eca751a-a507-4144-9c6f-8d6d978c3a98",
+              "name": "Collection of people.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "people"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ws.op",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ws.start",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "ws.size",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth1",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "OAuth <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total_size\": 1688,\n  \"start\": 7562,\n  \"entries\": [\n    {\n      \"name\": \"string\",\n      \"display_name\": \"string\",\n      \"email_addresses_collection_link\": \"https://uJjmymJxdEzKihjYVknFcAHUFWt.rzppsdo7jHb9hEu-maMIZQ-7FjS8CD60mx-Om.C7vpOZO65ix4\",\n      \"bugs_reported_collection_link\": \"http://PzlpOjaDoUpPyCGntrGkPLYdG.cdmjREbsr.\",\n      \"teams_participated_in_collection_link\": \"http://lJMCRlff.usbnKuKQ82ccdoLzh+\",\n      \"web_link\": \"http://onRObfqroELFBYDQJ.xfgUM4TThuxz4f,PHDoUGeplChc\",\n      \"self_link\": \"http://BrjTpShgyaFUVLEI.vzYrwlml9oletwBLUwSQrQkslS45D3g7J5jaSn0hzNNZ3W8,i7i88KX\"\n    },\n    {\n      \"name\": \"string\",\n      \"display_name\": \"string\",\n      \"email_addresses_collection_link\": \"https://AfZCNRjJXwpQuTejLvMAz.xyfTX5naQ5k2BHucNEMmoQM5w+zH5M3k4ms8L1ytD9Y-oocY\",\n      \"bugs_reported_collection_link\": \"http://XsdOoLFgQYjIRwnEKDwFIpjQdCoq.xueyTgpiSxL\",\n      \"teams_participated_in_collection_link\": \"https://wPEeRK.jrZX11vhXkRxbncdUbDwkanQW7YPoHu\",\n      \"web_link\": \"http://VLNwuA.qog,WgX2TREG4bitQZiRNsCfL,f.w3DmtPWREUsE\",\n      \"self_link\": \"https://befsEDhaDLPu.lgqzycCZdaGn5U\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d8a8a6c9-1264-49f1-852f-c8670d9f65a8",
+          "name": "Get Person",
+          "request": {
+            "name": "Get Person",
+            "description": {
+              "content": "Returns information about a specific Launchpad person or team.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "~{{person_name}}"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ce8c3074-fe2d-422b-9402-f70612fe61b9",
+              "name": "Person or team details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "~{{person_name}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth1",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "OAuth <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"display_name\": \"string\",\n  \"email_addresses_collection_link\": \"http://XpLdPuPGoqbSCkNFwTNJJyGDHz.cwfvg+mihFb9Vz\",\n  \"bugs_reported_collection_link\": \"http://LkwXdDfYjOmrHnOVnWRBmCNj.tzanF4DNG3l2\",\n  \"teams_participated_in_collection_link\": \"https://SSWpjKdUQAxrKPKJrW.xafNAdwFUVfDH.jn-uxPX9zbbzJvwwdL,wGMMdv0WF\",\n  \"web_link\": \"http://aCLRqqQEMZaeAGSMaCFUpReDH.qnhcaKm-MO3GVVXyn7F8Qft\",\n  \"self_link\": \"https://LLtvUtF.jewcDEKHGxbqEoK2TC9FJDwf9exrM6x6CLI3pHfCBL9V216scf08Bvu-Kd,5X\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "216cbdf1-1483-46f1-abc9-736e288b1450",
+              "name": "Person not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "~{{person_name}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth1",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "OAuth <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "d1e52803-46a8-4ed2-a355-b81110823dba",
+      "name": "Projects",
+      "description": {
+        "content": "Open-source project resources",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "978b0bf2-e21b-4f3f-81fd-73f642741153",
+          "name": "List Projects",
+          "request": {
+            "name": "List Projects",
+            "description": {
+              "content": "Returns a collection of projects registered in Launchpad.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "projects"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ws.op",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "Project search query."
+                },
+                {
+                  "disabled": false,
+                  "key": "ws.start",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "ws.size",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4c84f40a-1164-49ea-b846-7885085775a5",
+              "name": "Collection of projects.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ws.op",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ws.start",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "ws.size",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth1",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "OAuth <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total_size\": 8423,\n  \"start\": 8444,\n  \"entries\": [\n    {\n      \"name\": \"string\",\n      \"display_name\": \"string\",\n      \"title\": \"string\",\n      \"summary\": \"string\",\n      \"description\": \"string\",\n      \"homepage_url\": \"https://pIdNXNUhfJQTkydvJH.hlmlLOJXqg-18oD4rbiK,fZeunxU,c1SxUdpwzJ\",\n      \"programming_language\": \"string\",\n      \"web_link\": \"https://pFgcZVZdkbAbuwdSihDbBgnZPipgSo.zfF-iUicoOAlCFGEMaraKtttpNMZAiDzITz2nnxWdcZR8,mQnrCuFdxUFFdH\",\n      \"self_link\": \"https://SrGnfuAu.kpphsfD2CMcvYgq4MesnB.1uJQxQXMP9oUml7emsJ-\"\n    },\n    {\n      \"name\": \"string\",\n      \"display_name\": \"string\",\n      \"title\": \"string\",\n      \"summary\": \"string\",\n      \"description\": \"string\",\n      \"homepage_url\": \"http://eoJ.mbEtn.14NAJZI7Dr0PXg9Q.vNceaDhQnG3\",\n      \"programming_language\": \"string\",\n      \"web_link\": \"https://sXVOrqscHazTSqWDMbKdkaRRhbhvUxCp.lgNoz09aBdioctfXj0hUQtgHVDChNdlVecAJqc85R9fVUnNlj+e74PhsC66i2e0Tt1E-BQJ\",\n      \"self_link\": \"https://rDzJbSyqbAKLXBOulcknhYPb.qfapSjilxkZS-mG.qW5j8HD.3gxh-0AySaXtZOqOuk.MwdwKqyu0dLHCNO+RVY1hRV0QlvAMs2f\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2ba6fbb8-4558-46cc-b486-a8476be21b3f",
+          "name": "Get Project",
+          "request": {
+            "name": "Get Project",
+            "description": {
+              "content": "Returns details for a specific Launchpad project.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":project_name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project_name",
+                  "description": "(Required) Launchpad project name."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "98b0d1cd-0a60-40be-9a46-66acf1af6a1c",
+              "name": "Project details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":project_name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project_name",
+                      "description": "(Required) Launchpad project name."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth1",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "OAuth <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"display_name\": \"string\",\n  \"title\": \"string\",\n  \"summary\": \"string\",\n  \"description\": \"string\",\n  \"homepage_url\": \"http://HvCBYoEOFCaoP.tjqtLQJmPwAyowrIKmxsZK6P4ZZgsctOMOFFwagqMp+DFlx\",\n  \"programming_language\": \"string\",\n  \"web_link\": \"http://gkGHaKk.snyXxENly+BYPmSII4vLdTuI.gV\",\n  \"self_link\": \"http://W.moASu9KZAP4X5J1r.9SQowxu4O3jtm,GQdHitB43Ek.BYi\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0920d954-7033-417e-addb-5167f06741fd",
+              "name": "Project not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":project_name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project_name",
+                      "description": "(Required) Launchpad project name."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth1",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "OAuth <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "9467551d-92ac-4883-99b3-a0a3c727e01a",
+      "name": "Bugs",
+      "description": {
+        "content": "Bug tracking and management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6a898046-3465-4834-9a82-97b9bc8313d0",
+          "name": "List Bugs",
+          "request": {
+            "name": "List Bugs",
+            "description": {
+              "content": "Returns a collection of bugs tracked in Launchpad.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bugs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ws.op",
+                  "value": "<string>",
+                  "description": "Named operation to perform."
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "Filter bugs by status."
+                },
+                {
+                  "disabled": false,
+                  "key": "ws.start",
+                  "value": "<integer>",
+                  "description": "Starting offset for pagination."
+                },
+                {
+                  "disabled": false,
+                  "key": "ws.size",
+                  "value": "<integer>",
+                  "description": "Number of items per page."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7a94e78e-ca6d-4111-b57e-cfe7c87fe31c",
+              "name": "Collection of bugs.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bugs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ws.op",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ws.start",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "ws.size",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth1",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "OAuth <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total_size\": 3620,\n  \"start\": 2433,\n  \"entries\": [\n    {\n      \"id\": 6888,\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"status\": \"string\",\n      \"importance\": \"string\",\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"date_created\": \"1947-07-31T15:07:11.003Z\",\n      \"date_last_updated\": \"1980-09-17T22:16:11.045Z\",\n      \"web_link\": \"http://QCDTEBcjLSxzhZtYILdlCR.ariOxPOT0cYe2xR3G9+vnFedlXmbxzOIIDzlWXr2bRB4sxPWZkYPr\",\n      \"self_link\": \"https://TdQoCnXjcozgfrFELhKwDJN.yjbckfAjN.NmfE9\"\n    },\n    {\n      \"id\": 8257,\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"status\": \"string\",\n      \"importance\": \"string\",\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"date_created\": \"1993-06-06T15:27:13.280Z\",\n      \"date_last_updated\": \"1995-10-12T19:16:27.669Z\",\n      \"web_link\": \"http://dbRpeyPFExYaxOywyYDTKKDZdIzJI.pxoclHMTh-o0lBablQkxmexAFDNKHktbgbmv5XGosQc7aBz6B1F.NDKzDLrk48By\",\n      \"self_link\": \"http://REcLlXZ.rkbuoCe2TMn-IaJInScSyQIoJajQmX7pxMVXfzR0wTfwpprX\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "34c28b7b-dece-4be9-bda9-4b5d3da2c406",
+          "name": "Get Bug",
+          "request": {
+            "name": "Get Bug",
+            "description": {
+              "content": "Returns details for a specific Launchpad bug.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bugs",
+                ":bug_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "bug_id",
+                  "description": "(Required) Unique bug identifier."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "62a4e738-a079-43f1-b147-c4fdabb5b630",
+              "name": "Bug details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bugs",
+                    ":bug_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "bug_id",
+                      "description": "(Required) Unique bug identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth1",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "OAuth <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 2673,\n  \"title\": \"string\",\n  \"description\": \"string\",\n  \"status\": \"string\",\n  \"importance\": \"string\",\n  \"tags\": [\n    \"string\",\n    \"string\"\n  ],\n  \"date_created\": \"1949-08-14T07:16:32.065Z\",\n  \"date_last_updated\": \"1996-08-18T14:00:10.154Z\",\n  \"web_link\": \"https://jHkfcNvHLwQAwOatwOUljI.ymgIbpArNw-veUCgietUHriV5T8KF\",\n  \"self_link\": \"http://IRTdIuOgcVWzR.jru5658o7XnoldBPd7qQi.GCjsallVejx9tvb\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "57d8bda6-4115-4f74-9d0b-f87d90f81475",
+              "name": "Bug not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bugs",
+                    ":bug_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "bug_id",
+                      "description": "(Required) Unique bug identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth1",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "OAuth <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9fcd35cd-0c06-4b31-a199-0b85cb0625ad",
+          "name": "Update Bug",
+          "request": {
+            "name": "Update Bug",
+            "description": {
+              "content": "Update a bug's fields such as title, description, or status.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bugs",
+                ":bug_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "bug_id",
+                  "description": "(Required) Unique bug identifier."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2ff252bc-79df-482f-a941-7503d1228a13",
+              "name": "Updated bug.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bugs",
+                    ":bug_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "bug_id",
+                      "description": "(Required) Unique bug identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth1",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "OAuth <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 2673,\n  \"title\": \"string\",\n  \"description\": \"string\",\n  \"status\": \"string\",\n  \"importance\": \"string\",\n  \"tags\": [\n    \"string\",\n    \"string\"\n  ],\n  \"date_created\": \"1949-08-14T07:16:32.065Z\",\n  \"date_last_updated\": \"1996-08-18T14:00:10.154Z\",\n  \"web_link\": \"https://jHkfcNvHLwQAwOatwOUljI.ymgIbpArNw-veUCgietUHriV5T8KF\",\n  \"self_link\": \"http://IRTdIuOgcVWzR.jru5658o7XnoldBPd7qQi.GCjsallVejx9tvb\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "c043e028-d45f-41d1-a3ce-8088dc402411",
+      "name": "Packages",
+      "description": {
+        "content": "Distribution package management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "dbde3c8b-8482-4d61-89b6-6464e3247eb5",
+          "name": "Get Source Package",
+          "request": {
+            "name": "Get Source Package",
+            "description": {
+              "content": "Returns details for a specific Ubuntu source package.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ubuntu",
+                "+source",
+                ":source_package_name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "source_package_name",
+                  "description": "(Required) Source package name."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1f0de9f5-57f6-4d4e-b0a3-d83410524ee8",
+              "name": "Source package details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ubuntu",
+                    "+source",
+                    ":source_package_name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "source_package_name",
+                      "description": "(Required) Source package name."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth1",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "OAuth <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"title\": \"string\",\n  \"web_link\": \"http://rIXVIbcsHbNnhXiqPbBibvcDrp.tqnrJOodOxePk-ouTG65RSsJ4chCkita5Si.lCIW\",\n  \"self_link\": \"http://MZQoVjo.drbvhnfv6DmGKcAeDrTMQzSz\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e7856e26-50b9-4c55-92fc-518906504f04",
+              "name": "Source package not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ubuntu",
+                    "+source",
+                    ":source_package_name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "source_package_name",
+                      "description": "(Required) Source package name."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth1",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "OAuth <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "703caa4b-1df8-4789-ba41-a573f0e6e459",
+      "name": "Distributions",
+      "description": {
+        "content": "Ubuntu distribution resources",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f2d1d096-c5fe-477f-8687-fc2367e08aa4",
+          "name": "Get Ubuntu Distribution",
+          "request": {
+            "name": "Get Ubuntu Distribution",
+            "description": {
+              "content": "Returns information about the Ubuntu distribution in Launchpad.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ubuntu"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4b516271-5681-499f-bcaa-341360510d6c",
+              "name": "Ubuntu distribution details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ubuntu"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth1",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "OAuth <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"display_name\": \"string\",\n  \"title\": \"string\",\n  \"description\": \"string\",\n  \"web_link\": \"https://bWpuJjeBEkFJv.tlQKQKmybjwESCykt6CjKMhZ95s,u\",\n  \"self_link\": \"http://AdSFecyGTbNNlCiVOuUtD.wpU+VXQ2Ie8\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.launchpad.net/1.0",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) Launchpad username or team name.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "person_name"
+    }
+  ],
+  "auth": {
+    "type": "oauth1",
+    "oauth1": [
+      {
+        "key": "consumerSecret",
+        "value": "{{consumerSecret}}"
+      },
+      {
+        "key": "consumerKey",
+        "value": "{{consumerKey}}"
+      },
+      {
+        "key": "addParamsToHeader",
+        "value": true
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "3e7bd464-1781-4357-a85b-8946ab8f6cc3",
+    "name": "Launchpad REST API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Launchpad web service API provides REST-based access to Launchpad's resources including people, projects, bugs, branches, and packages. The canonical source for the full API is the WADL document at api.launchpad.net.\n\nContact Support:\n Name: Launchpad Community",
+      "type": "text/plain"
+    }
+  }
+}

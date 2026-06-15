@@ -1,0 +1,191 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Snap Store Devices API",
+    "version": "104"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Search",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search Snaps",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.snapcraft.io/v2/snaps/search",
+            "headers": [
+              {
+                "name": "Snap-Device-Series",
+                "value": ""
+              },
+              {
+                "name": "User-Agent",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Search query string."
+              },
+              {
+                "name": "category",
+                "value": "",
+                "type": "query",
+                "description": "Filter by snap category."
+              },
+              {
+                "name": "scope",
+                "value": "",
+                "type": "query",
+                "description": "Search scope. Use 'wide' for cross-store search."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response."
+              }
+            ]
+          },
+          "docs": "Search for snaps in the Snap Store by name, keyword, or category."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Info",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Snap Info",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.snapcraft.io/v2/snaps/info/:snap_name",
+            "headers": [
+              {
+                "name": "Snap-Device-Series",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "snap_name",
+                "value": "",
+                "type": "path",
+                "description": "The snap package name."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to return."
+              }
+            ]
+          },
+          "docs": "Get detailed information about a specific snap and its released revisions."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Refresh",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Refresh Snaps",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.snapcraft.io/v2/snaps/refresh",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Check for and retrieve updates for installed snaps."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Categories",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Snap Categories",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.snapcraft.io/v2/snaps/categories",
+            "headers": [
+              {
+                "name": "Snap-Device-Series",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Returns all available snap categories in the store."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Metrics",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Snap Metrics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.snapcraft.io/v2/metrics",
+            "params": [
+              {
+                "name": "snap_name",
+                "value": "",
+                "type": "query",
+                "description": "Filter metrics by snap name."
+              },
+              {
+                "name": "start",
+                "value": "",
+                "type": "query",
+                "description": "Start date for metrics range."
+              },
+              {
+                "name": "end",
+                "value": "",
+                "type": "query",
+                "description": "End date for metrics range."
+              }
+            ]
+          },
+          "docs": "Returns usage and install metrics for snaps."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

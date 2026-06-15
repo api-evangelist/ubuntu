@@ -1,0 +1,680 @@
+{
+  "item": [
+    {
+      "id": "41eeadaf-b142-44dd-ae59-a86842e3fd49",
+      "name": "Search",
+      "description": {
+        "content": "Snap search and discovery",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "394e0ad9-28d9-4432-b948-4805c32eb1bb",
+          "name": "Search Snaps",
+          "request": {
+            "name": "Search Snaps",
+            "description": {
+              "content": "Search for snaps in the Snap Store by name, keyword, or category.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "snaps",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "Search query string."
+                },
+                {
+                  "disabled": false,
+                  "key": "category",
+                  "value": "<string>",
+                  "description": "Filter by snap category."
+                },
+                {
+                  "disabled": false,
+                  "key": "scope",
+                  "value": "<string>",
+                  "description": "Search scope. Use 'wide' for cross-store search."
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Comma-separated list of fields to include in the response."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Snap device series identifier.",
+                "key": "Snap-Device-Series",
+                "value": "16"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) Client user agent string.",
+                "key": "User-Agent",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "986805c4-dcfc-4aac-ac19-e99863c38f46",
+              "name": "List of matching snaps.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "snaps",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "category",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scope",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Snap device series identifier.",
+                    "key": "Snap-Device-Series",
+                    "value": "16"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Client user agent string.",
+                    "key": "User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": [\n    {\n      \"snap\": {\n        \"snap-id\": \"string\",\n        \"name\": \"string\",\n        \"title\": \"string\",\n        \"summary\": \"string\",\n        \"description\": \"string\",\n        \"publisher\": {\n          \"id\": \"string\",\n          \"username\": \"string\",\n          \"display-name\": \"string\"\n        },\n        \"channels\": {\n          \"key_0\": {\n            \"channel\": \"string\",\n            \"revision\": 3377,\n            \"version\": \"string\",\n            \"released-at\": \"2009-03-24T18:21:44.565Z\",\n            \"size\": 5222,\n            \"download\": {\n              \"url\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"sha3-384\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          }\n        },\n        \"categories\": [\n          {\n            \"name\": \"string\"\n          },\n          {\n            \"name\": \"string\"\n          }\n        ],\n        \"media\": [\n          {\n            \"type\": \"string\",\n            \"url\": \"https://RJvOodFTdASg.fcvOWpXBLo38JKtuVZk1jwKGQM7GYhu5gAzR2gIB6M4xP1qMi4krVKE07EJsDQB9NhcFXSQr7D.Rrwn+eh\",\n            \"width\": 1257,\n            \"height\": 833\n          },\n          {\n            \"type\": \"string\",\n            \"url\": \"https://NfpHvXwOfUIlmGrpSDxUzzzlINiktNty.uqFjvSLtLSQ,JYlhLeN3lM.NumlSIelyFlgN+nANcZqquz,aAzd\",\n            \"width\": 2933,\n            \"height\": 8593\n          }\n        ],\n        \"license\": \"string\"\n      },\n      \"result\": \"string\"\n    },\n    {\n      \"snap\": {\n        \"snap-id\": \"string\",\n        \"name\": \"string\",\n        \"title\": \"string\",\n        \"summary\": \"string\",\n        \"description\": \"string\",\n        \"publisher\": {\n          \"id\": \"string\",\n          \"username\": \"string\",\n          \"display-name\": \"string\"\n        },\n        \"channels\": {\n          \"key_0\": {\n            \"channel\": \"string\",\n            \"revision\": 1978,\n            \"version\": \"string\",\n            \"released-at\": \"1995-04-08T10:50:39.029Z\",\n            \"size\": 2527,\n            \"download\": {\n              \"url\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"sha3-384\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          \"key_1\": {\n            \"channel\": \"string\",\n            \"revision\": 4312,\n            \"version\": \"string\",\n            \"released-at\": \"1991-02-13T07:16:41.288Z\",\n            \"size\": 6293,\n            \"download\": {\n              \"url\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"sha3-384\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          }\n        },\n        \"categories\": [\n          {\n            \"name\": \"string\"\n          },\n          {\n            \"name\": \"string\"\n          }\n        ],\n        \"media\": [\n          {\n            \"type\": \"string\",\n            \"url\": \"https://dawMrvrAcmyGgFhMIFFipSsuQbh.ecpHYYX+mKD6TQdeUQr8DfJCCfsbO+Jo9Rtfy4mNKuDyf5pSVwy\",\n            \"width\": 7708,\n            \"height\": 6268\n          },\n          {\n            \"type\": \"string\",\n            \"url\": \"https://VoaobsOGjzYWKerqeiSaGocI.psRG49njAdfEEhSruA4XsLemx+moDa0pILpEmRiHVXDV4PnxfL52GGd\",\n            \"width\": 914,\n            \"height\": 6536\n          }\n        ],\n        \"license\": \"string\"\n      },\n      \"result\": \"string\"\n    }\n  ],\n  \"total\": 2362\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "eccff76d-7875-4b0a-9e3c-1c57c7c93f94",
+      "name": "Info",
+      "description": {
+        "content": "Snap information and details",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "dbc9d8cc-88a7-4879-a18c-458327830388",
+          "name": "Get Snap Info",
+          "request": {
+            "name": "Get Snap Info",
+            "description": {
+              "content": "Get detailed information about a specific snap and its released revisions.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "snaps",
+                "info",
+                ":snap_name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Comma-separated list of fields to return."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "snap_name",
+                  "description": "(Required) The snap package name."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Snap device series identifier.",
+                "key": "Snap-Device-Series",
+                "value": "16"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3ba2d378-e03d-4f77-ad1f-562ea8112f88",
+              "name": "Snap information.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "snaps",
+                    "info",
+                    ":snap_name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "snap_name",
+                      "description": "(Required) The snap package name."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Snap device series identifier.",
+                    "key": "Snap-Device-Series",
+                    "value": "16"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"snap-id\": \"string\",\n  \"default-track\": \"string\",\n  \"snap\": {\n    \"snap-id\": \"string\",\n    \"name\": \"string\",\n    \"title\": \"string\",\n    \"summary\": \"string\",\n    \"description\": \"string\",\n    \"publisher\": {\n      \"id\": \"string\",\n      \"username\": \"string\",\n      \"display-name\": \"string\"\n    },\n    \"channels\": {\n      \"key_0\": {\n        \"channel\": \"string\",\n        \"revision\": 550,\n        \"version\": \"string\",\n        \"released-at\": \"2024-08-07T23:01:29.806Z\",\n        \"size\": 7850,\n        \"download\": {\n          \"url\": \"http://khmyNIycQRnFxGmrfHXhyAESzNzAeCWg.ttwyGqkLSfkBqKA8cmanudtl6bNOh9oRWdnLe2TmIHxHAbPRFnU86\",\n          \"sha3-384\": \"string\"\n        }\n      },\n      \"key_1\": {\n        \"channel\": \"string\",\n        \"revision\": 5987,\n        \"version\": \"string\",\n        \"released-at\": \"1977-12-29T07:34:43.872Z\",\n        \"size\": 9260,\n        \"download\": {\n          \"url\": \"https://jbyUIeoOQUeaeoYwZNWaY.bwmgc1.PNNDe-qM8yZ,Qv+.3hLdOMOMK26bKD6xSv+njAmE5iO.UcFfDvzQG0a6LaehBSRF.4\",\n          \"sha3-384\": \"string\"\n        }\n      },\n      \"key_2\": {\n        \"channel\": \"string\",\n        \"revision\": 8352,\n        \"version\": \"string\",\n        \"released-at\": \"1980-06-23T01:59:31.375Z\",\n        \"size\": 1346,\n        \"download\": {\n          \"url\": \"http://usg.bzuE9OVA5H9V1kLM9p.4oJBRtFszzBYOzVVlS92rUDjCfv\",\n          \"sha3-384\": \"string\"\n        }\n      }\n    },\n    \"categories\": [\n      {\n        \"name\": \"string\"\n      },\n      {\n        \"name\": \"string\"\n      }\n    ],\n    \"media\": [\n      {\n        \"type\": \"string\",\n        \"url\": \"http://gIInYnmvOu.pacaGYRPbvvRId.N7epH-VODldEBZ4FhR9wyDP1W9E.Te9YKa1QK9ZVhcd1ggw1Fhnu\",\n        \"width\": 7155,\n        \"height\": 1859\n      },\n      {\n        \"type\": \"string\",\n        \"url\": \"https://cbmUzTIXbpcbeDDTHirR.jyB,XwnDdfsSsfqQI2WuZZC\",\n        \"width\": 5119,\n        \"height\": 4049\n      }\n    ],\n    \"license\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a2de15c7-9546-4b67-9b4b-2074cad4d5d3",
+              "name": "Snap not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "snaps",
+                    "info",
+                    ":snap_name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "snap_name",
+                      "description": "(Required) The snap package name."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Snap device series identifier.",
+                    "key": "Snap-Device-Series",
+                    "value": "16"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "44aeaac3-a094-4e98-948f-4033ddf6ae06",
+      "name": "Refresh",
+      "description": {
+        "content": "Snap update and refresh operations",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ea3053f6-ae6b-4c55-98ab-afc12d41a520",
+          "name": "Refresh Snaps",
+          "request": {
+            "name": "Refresh Snaps",
+            "description": {
+              "content": "Check for and retrieve updates for installed snaps.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "snaps",
+                "refresh"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"context\": [\n    {\n      \"snap-id\": \"<string>\",\n      \"channel\": \"<string>\",\n      \"revision\": \"<integer>\",\n      \"tracking-channel\": \"<string>\"\n    },\n    {\n      \"snap-id\": \"<string>\",\n      \"channel\": \"<string>\",\n      \"revision\": \"<integer>\",\n      \"tracking-channel\": \"<string>\"\n    }\n  ],\n  \"actions\": [\n    {\n      \"action\": \"<string>\",\n      \"snap-id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"channel\": \"<string>\"\n    },\n    {\n      \"action\": \"<string>\",\n      \"snap-id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"channel\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fcf80c73-f8f8-4e84-abe9-881ccf7dbf01",
+              "name": "Refresh results.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "snaps",
+                    "refresh"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"context\": [\n    {\n      \"snap-id\": \"<string>\",\n      \"channel\": \"<string>\",\n      \"revision\": \"<integer>\",\n      \"tracking-channel\": \"<string>\"\n    },\n    {\n      \"snap-id\": \"<string>\",\n      \"channel\": \"<string>\",\n      \"revision\": \"<integer>\",\n      \"tracking-channel\": \"<string>\"\n    }\n  ],\n  \"actions\": [\n    {\n      \"action\": \"<string>\",\n      \"snap-id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"channel\": \"<string>\"\n    },\n    {\n      \"action\": \"<string>\",\n      \"snap-id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"channel\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "d858d510-e394-41ab-9abf-6cc1a864ebb5",
+      "name": "Categories",
+      "description": {
+        "content": "Snap category listings",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "eb94278d-86ba-41d2-b27b-7aea839675ad",
+          "name": "List Snap Categories",
+          "request": {
+            "name": "List Snap Categories",
+            "description": {
+              "content": "Returns all available snap categories in the store.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "snaps",
+                "categories"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Snap device series identifier.",
+                "key": "Snap-Device-Series",
+                "value": "16"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1ab34c36-e900-4922-a214-75c315a4f993",
+              "name": "List of snap categories.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "snaps",
+                    "categories"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Snap device series identifier.",
+                    "key": "Snap-Device-Series",
+                    "value": "16"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": [\n    {\n      \"name\": \"string\",\n      \"title\": \"string\"\n    },\n    {\n      \"name\": \"string\",\n      \"title\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "5bbdaf18-d1f1-471b-85ee-9e7308a8630a",
+      "name": "Metrics",
+      "description": {
+        "content": "Snap usage metrics",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2609b3fe-5d46-4d7c-86d2-a1b8ceaa0eba",
+          "name": "Get Snap Metrics",
+          "request": {
+            "name": "Get Snap Metrics",
+            "description": {
+              "content": "Returns usage and install metrics for snaps.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "metrics"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "snap_name",
+                  "value": "<string>",
+                  "description": "Filter metrics by snap name."
+                },
+                {
+                  "disabled": false,
+                  "key": "start",
+                  "value": "<date>",
+                  "description": "Start date for metrics range."
+                },
+                {
+                  "disabled": false,
+                  "key": "end",
+                  "value": "<date>",
+                  "description": "End date for metrics range."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "620160e8-2312-43bf-b4c9-8c6b0e6ba1f3",
+              "name": "Snap metrics data.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "metrics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "snap_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "start",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "end",
+                      "value": "<date>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "dd458085-7b29-40ea-be16-d2a6dc64bb7d",
+      "name": "Auth",
+      "description": {
+        "content": "Device authentication",
+        "type": "text/plain"
+      },
+      "item": [],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.snapcraft.io",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "d030d755-0049-4938-86af-9a648f683606",
+    "name": "Snap Store Devices API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Snap Store Devices API provides access to the Canonical Snap Store for querying, discovering, and managing snap packages. Supports snap search, info retrieval, refresh operations, category listings, and metrics for IoT and desktop deployments.\n\nContact Support:\n Name: Snapcraft Community",
+      "type": "text/plain"
+    }
+  }
+}

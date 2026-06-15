@@ -1,0 +1,268 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Launchpad REST API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "People",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List People",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.launchpad.net/1.0/people",
+            "params": [
+              {
+                "name": "ws.op",
+                "value": "",
+                "type": "query",
+                "description": "Named operation to perform on the collection."
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Search query string for people."
+              },
+              {
+                "name": "ws.start",
+                "value": "",
+                "type": "query",
+                "description": "Starting offset for pagination."
+              },
+              {
+                "name": "ws.size",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return."
+              }
+            ]
+          },
+          "docs": "Returns a collection of people and teams registered in Launchpad."
+        },
+        {
+          "info": {
+            "name": "Get Person",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.launchpad.net/1.0/~:person_name",
+            "params": [
+              {
+                "name": "person_name",
+                "value": "",
+                "type": "path",
+                "description": "Launchpad username or team name."
+              }
+            ]
+          },
+          "docs": "Returns information about a specific Launchpad person or team."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Bugs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Bugs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.launchpad.net/1.0/bugs",
+            "params": [
+              {
+                "name": "ws.op",
+                "value": "",
+                "type": "query",
+                "description": "Named operation to perform."
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Filter bugs by status."
+              },
+              {
+                "name": "ws.start",
+                "value": "",
+                "type": "query",
+                "description": "Starting offset for pagination."
+              },
+              {
+                "name": "ws.size",
+                "value": "",
+                "type": "query",
+                "description": "Number of items per page."
+              }
+            ]
+          },
+          "docs": "Returns a collection of bugs tracked in Launchpad."
+        },
+        {
+          "info": {
+            "name": "Get Bug",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.launchpad.net/1.0/bugs/:bug_id",
+            "params": [
+              {
+                "name": "bug_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique bug identifier."
+              }
+            ]
+          },
+          "docs": "Returns details for a specific Launchpad bug."
+        },
+        {
+          "info": {
+            "name": "Update Bug",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.launchpad.net/1.0/bugs/:bug_id",
+            "params": [
+              {
+                "name": "bug_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique bug identifier."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a bug's fields such as title, description, or status."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Projects",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Projects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.launchpad.net/1.0/projects",
+            "params": [
+              {
+                "name": "ws.op",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Project search query."
+              },
+              {
+                "name": "ws.start",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ws.size",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a collection of projects registered in Launchpad."
+        },
+        {
+          "info": {
+            "name": "Get Project",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.launchpad.net/1.0/:project_name",
+            "params": [
+              {
+                "name": "project_name",
+                "value": "",
+                "type": "path",
+                "description": "Launchpad project name."
+              }
+            ]
+          },
+          "docs": "Returns details for a specific Launchpad project."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Distributions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Ubuntu Distribution",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.launchpad.net/1.0/ubuntu"
+          },
+          "docs": "Returns information about the Ubuntu distribution in Launchpad."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Packages",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Source Package",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.launchpad.net/1.0/ubuntu/+source/:source_package_name",
+            "params": [
+              {
+                "name": "source_package_name",
+                "value": "",
+                "type": "path",
+                "description": "Source package name."
+              }
+            ]
+          },
+          "docs": "Returns details for a specific Ubuntu source package."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
