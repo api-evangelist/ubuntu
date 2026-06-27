@@ -32,7 +32,7 @@ apis:
         url: https://documentation.ubuntu.com/launchpad/user/explanation/launchpad-api/launchpad-web-service/
       - type: Authentication
         url: https://help.launchpad.net/API/Uses
-      - type: Wadl
+      - type: WADL
         url: https://api.launchpad.net/devel
       - type: OpenAPI
         url: openapi/ubuntu-launchpad-openapi.yml
@@ -77,16 +77,16 @@ apis:
         url: https://api.snapcraft.io/docs/
       - type: Dashboard
         url: https://snapcraft.io/account
-      - type: Developer Portal
+      - type: DeveloperPortal
         url: https://snapcraft.io/docs
       - type: OpenAPI
         url: openapi/ubuntu-snap-store-openapi.yml
-      - type: Example
+      - type: Examples
         url: examples/ubuntu-snap-search-example.json
       - type: JSONSchema
         url: json-schema/ubuntu-snap-schema.json
     contact:
-      - type: Forum
+      - type: Forums
         url: https://forum.snapcraft.io/
   - name: Ubuntu Archive API
     description: >-
@@ -179,7 +179,7 @@ apis:
         url: https://ubuntu.com/security/notices/rss.xml
       - type: OpenAPI
         url: openapi/ubuntu-cve-openapi.yml
-      - type: Example
+      - type: Examples
         url: examples/ubuntu-cve-list-example.json
       - type: JSONSchema
         url: json-schema/ubuntu-cve-schema.json
@@ -204,5 +204,5 @@ properties:
   - url: json-ld/ubuntu-context.jsonld
     type: JSONLDContext
   - url: capabilities/package-and-security-management.yaml
-    type: NaftikoCapabilities
+    type: X-NaftikoCapabilities
 specificationVersion: '0.19'
