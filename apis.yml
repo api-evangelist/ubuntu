@@ -8,6 +8,10 @@ url: https://ubuntu.com
 created: '2024-01-15'
 modified: '2026-05-19'
 common:
+  - type: DomainSecurity
+    url: security/ubuntu-domain-security.yml
+  - type: Authentication
+    url: authentication/ubuntu-authentication.yml
   - type: LinkedIn
     url: https://www.linkedin.com/showcase/ubuntu-linux
 apis:

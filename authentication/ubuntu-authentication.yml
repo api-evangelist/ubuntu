@@ -1,0 +1,13 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/ubuntu-launchpad-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: OAuth1
+  type: http
+  scheme: oauth
+  description: OAuth 1.0a authentication with Launchpad credentials
+  sources:
+  - openapi/ubuntu-launchpad-openapi.yml
