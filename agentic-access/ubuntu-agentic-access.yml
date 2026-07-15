@@ -1,0 +1,208 @@
+generated: '2026-07-15'
+method: generated
+source: openapi/ubuntu-cve-openapi.yml, openapi/ubuntu-launchpad-openapi.yml, openapi/ubuntu-snap-store-openapi.yml
+description: Recommended x-agentic-access execution contracts, classified heuristically from
+  the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
+  audience per deployment. See research/curity/agentic-governance/.
+summary:
+  operations: 18
+  by_action_class:
+    connected: 16
+    acting: 2
+  by_consequence:
+    read: 16
+    write: 2
+  human_in_the_loop_required: 0
+operations:
+- path: /cves.json
+  method: get
+  operationId: listCves
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /cves/{cve_id}.json
+  method: get
+  operationId: getCve
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /notices.json
+  method: get
+  operationId: listNotices
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /notices/{notice_id}.json
+  method: get
+  operationId: getNotice
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /people
+  method: get
+  operationId: listPeople
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /~{person_name}
+  method: get
+  operationId: getPerson
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /bugs
+  method: get
+  operationId: listBugs
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /bugs/{bug_id}
+  method: get
+  operationId: getBug
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /bugs/{bug_id}
+  method: patch
+  operationId: updateBug
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /projects
+  method: get
+  operationId: listProjects
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /{project_name}
+  method: get
+  operationId: getProject
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /ubuntu
+  method: get
+  operationId: getUbuntuDistribution
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /ubuntu/+source/{source_package_name}
+  method: get
+  operationId: getSourcePackage
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/snaps/search
+  method: get
+  operationId: searchSnaps
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/snaps/info/{snap_name}
+  method: get
+  operationId: getSnapInfo
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/snaps/refresh
+  method: post
+  operationId: refreshSnaps
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v2/snaps/categories
+  method: get
+  operationId: listSnapCategories
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/metrics
+  method: get
+  operationId: getSnapMetrics
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none

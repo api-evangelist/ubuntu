@@ -8,6 +8,8 @@ url: https://ubuntu.com
 created: '2024-01-15'
 modified: '2026-05-19'
 common:
+  - type: AgenticAccess
+    url: agentic-access/ubuntu-agentic-access.yml
   - type: DomainSecurity
     url: security/ubuntu-domain-security.yml
   - type: Authentication
