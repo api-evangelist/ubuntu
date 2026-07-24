@@ -1,0 +1,189 @@
+openapi: 3.0.0
+info:
+  title: Ubuntu Security CVE Bugs CVEs API
+  description: The Ubuntu Security CVE API provides programmatic access to Ubuntu's CVE (Common Vulnerabilities and Exposures) database. It enables querying security notices, CVE details, affected packages, and patch status across Ubuntu releases.
+  version: 1.0.0
+  contact:
+    name: Ubuntu Security Team
+    url: https://ubuntu.com/security
+servers:
+- url: https://ubuntu.com/security
+  description: Ubuntu Security API
+tags:
+- name: CVEs
+  description: CVE security vulnerabilities
+paths:
+  /cves.json:
+    get:
+      operationId: listCves
+      summary: List CVEs
+      description: Returns a paginated list of CVEs affecting Ubuntu packages.
+      tags:
+      - CVEs
+      parameters:
+      - name: q
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Search query for CVE IDs or descriptions.
+      - name: package
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Filter CVEs by affected package name.
+      - name: priority
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - critical
+          - high
+          - medium
+          - low
+          - negligible
+        description: Filter by CVE priority level.
+      - name: status
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Filter by fix status.
+      - name: codename
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Filter by Ubuntu release codename (e.g., jammy, noble).
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: 0
+        description: Pagination offset.
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: 20
+        description: Number of CVEs to return per page.
+      responses:
+        '200':
+          description: Paginated list of CVEs.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CveListResponse'
+  /cves/{cve_id}.json:
+    get:
+      operationId: getCve
+      summary: Get CVE
+      description: Returns detailed information about a specific CVE.
+      tags:
+      - CVEs
+      parameters:
+      - name: cve_id
+        in: path
+        required: true
+        schema:
+          type: string
+          pattern: ^CVE-\d{4}-\d{4,}$
+        description: CVE identifier (e.g., CVE-2024-1234).
+      responses:
+        '200':
+          description: CVE details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Cve'
+        '404':
+          description: CVE not found.
+components:
+  schemas:
+    Cve:
+      type: object
+      properties:
+        id:
+          type: string
+          description: CVE identifier.
+        published:
+          type: string
+          format: date-time
+          description: Date the CVE was published.
+        updated_at:
+          type: string
+          format: date-time
+          description: Date the CVE was last updated.
+        description:
+          type: string
+          description: Official CVE description.
+        ubuntu_description:
+          type: string
+          description: Ubuntu-specific description.
+        notes:
+          type: string
+          description: Additional notes about the CVE.
+        priority:
+          type: string
+          enum:
+          - critical
+          - high
+          - medium
+          - low
+          - negligible
+          description: Ubuntu priority level for this CVE.
+        cvss3:
+          type: number
+          description: CVSS v3 score.
+        status:
+          type: string
+          description: Current fix status.
+        mitigation:
+          type: string
+          description: Available mitigation steps.
+        references:
+          type: array
+          items:
+            type: string
+          description: External references and links.
+        packages:
+          type: array
+          items:
+            $ref: '#/components/schemas/AffectedPackage'
+    CveListResponse:
+      type: object
+      properties:
+        cves:
+          type: array
+          items:
+            $ref: '#/components/schemas/Cve'
+        offset:
+          type: integer
+        limit:
+          type: integer
+        total_results:
+          type: integer
+    AffectedPackage:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Package name.
+        source:
+          type: string
+          description: Source package name.
+        statuses:
+          type: array
+          items:
+            type: object
+            properties:
+              release_codename:
+                type: string
+              status:
+                type: string
+              description:
+                type: string

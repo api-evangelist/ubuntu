@@ -1,0 +1,50 @@
+openapi: 3.0.0
+info:
+  title: Ubuntu Security CVE Bugs Metrics API
+  description: The Ubuntu Security CVE API provides programmatic access to Ubuntu's CVE (Common Vulnerabilities and Exposures) database. It enables querying security notices, CVE details, affected packages, and patch status across Ubuntu releases.
+  version: 1.0.0
+  contact:
+    name: Ubuntu Security Team
+    url: https://ubuntu.com/security
+servers:
+- url: https://ubuntu.com/security
+  description: Ubuntu Security API
+tags:
+- name: Metrics
+  description: Snap usage metrics
+paths:
+  /v2/metrics:
+    get:
+      operationId: getSnapMetrics
+      summary: Get Snap Metrics
+      description: Returns usage and install metrics for snaps.
+      tags:
+      - Metrics
+      parameters:
+      - name: snap_name
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Filter metrics by snap name.
+      - name: start
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date
+        description: Start date for metrics range.
+      - name: end
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date
+        description: End date for metrics range.
+      responses:
+        '200':
+          description: Snap metrics data.
+          content:
+            application/json:
+              schema:
+                type: object

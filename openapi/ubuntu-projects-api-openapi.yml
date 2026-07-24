@@ -1,0 +1,116 @@
+openapi: 3.0.0
+info:
+  title: Ubuntu Security CVE Bugs Projects API
+  description: The Ubuntu Security CVE API provides programmatic access to Ubuntu's CVE (Common Vulnerabilities and Exposures) database. It enables querying security notices, CVE details, affected packages, and patch status across Ubuntu releases.
+  version: 1.0.0
+  contact:
+    name: Ubuntu Security Team
+    url: https://ubuntu.com/security
+servers:
+- url: https://ubuntu.com/security
+  description: Ubuntu Security API
+tags:
+- name: Projects
+  description: Open-source project resources
+paths:
+  /projects:
+    get:
+      operationId: listProjects
+      summary: List Projects
+      description: Returns a collection of projects registered in Launchpad.
+      tags:
+      - Projects
+      parameters:
+      - name: ws.op
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: q
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Project search query.
+      - name: ws.start
+        in: query
+        required: false
+        schema:
+          type: integer
+      - name: ws.size
+        in: query
+        required: false
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Collection of projects.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectCollection'
+  /{project_name}:
+    get:
+      operationId: getProject
+      summary: Get Project
+      description: Returns details for a specific Launchpad project.
+      tags:
+      - Projects
+      parameters:
+      - name: project_name
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Launchpad project name.
+      responses:
+        '200':
+          description: Project details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+        '404':
+          description: Project not found.
+components:
+  schemas:
+    Project:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Project name identifier.
+        display_name:
+          type: string
+          description: Project display name.
+        title:
+          type: string
+          description: Project title.
+        summary:
+          type: string
+          description: One-line project summary.
+        description:
+          type: string
+          description: Full project description.
+        homepage_url:
+          type: string
+          format: uri
+        programming_language:
+          type: string
+        web_link:
+          type: string
+          format: uri
+        self_link:
+          type: string
+          format: uri
+    ProjectCollection:
+      type: object
+      properties:
+        total_size:
+          type: integer
+        start:
+          type: integer
+        entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/Project'

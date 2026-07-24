@@ -1,0 +1,115 @@
+openapi: 3.0.0
+info:
+  title: Ubuntu Security CVE Bugs People API
+  description: The Ubuntu Security CVE API provides programmatic access to Ubuntu's CVE (Common Vulnerabilities and Exposures) database. It enables querying security notices, CVE details, affected packages, and patch status across Ubuntu releases.
+  version: 1.0.0
+  contact:
+    name: Ubuntu Security Team
+    url: https://ubuntu.com/security
+servers:
+- url: https://ubuntu.com/security
+  description: Ubuntu Security API
+tags:
+- name: People
+  description: People and team resources
+paths:
+  /people:
+    get:
+      operationId: listPeople
+      summary: List People
+      description: Returns a collection of people and teams registered in Launchpad.
+      tags:
+      - People
+      parameters:
+      - name: ws.op
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Named operation to perform on the collection.
+      - name: q
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Search query string for people.
+      - name: ws.start
+        in: query
+        required: false
+        schema:
+          type: integer
+        description: Starting offset for pagination.
+      - name: ws.size
+        in: query
+        required: false
+        schema:
+          type: integer
+        description: Number of items to return.
+      responses:
+        '200':
+          description: Collection of people.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PersonCollection'
+  /~{person_name}:
+    get:
+      operationId: getPerson
+      summary: Get Person
+      description: Returns information about a specific Launchpad person or team.
+      tags:
+      - People
+      parameters:
+      - name: person_name
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Launchpad username or team name.
+      responses:
+        '200':
+          description: Person or team details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Person'
+        '404':
+          description: Person not found.
+components:
+  schemas:
+    Person:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Launchpad username.
+        display_name:
+          type: string
+          description: Display name.
+        email_addresses_collection_link:
+          type: string
+          format: uri
+          description: Link to the person's email addresses.
+        bugs_reported_collection_link:
+          type: string
+          format: uri
+        teams_participated_in_collection_link:
+          type: string
+          format: uri
+        web_link:
+          type: string
+          format: uri
+        self_link:
+          type: string
+          format: uri
+    PersonCollection:
+      type: object
+      properties:
+        total_size:
+          type: integer
+        start:
+          type: integer
+        entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/Person'

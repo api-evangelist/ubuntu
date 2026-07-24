@@ -1,0 +1,123 @@
+openapi: 3.0.0
+info:
+  title: Ubuntu Security CVE Bugs Notices API
+  description: The Ubuntu Security CVE API provides programmatic access to Ubuntu's CVE (Common Vulnerabilities and Exposures) database. It enables querying security notices, CVE details, affected packages, and patch status across Ubuntu releases.
+  version: 1.0.0
+  contact:
+    name: Ubuntu Security Team
+    url: https://ubuntu.com/security
+servers:
+- url: https://ubuntu.com/security
+  description: Ubuntu Security API
+tags:
+- name: Notices
+  description: Ubuntu Security Notices
+paths:
+  /notices.json:
+    get:
+      operationId: listNotices
+      summary: List Security Notices
+      description: Returns Ubuntu Security Notices (USN) for published vulnerabilities.
+      tags:
+      - Notices
+      parameters:
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: 0
+        description: Pagination offset.
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: 20
+        description: Number of notices to return.
+      - name: release
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Filter notices by Ubuntu release codename.
+      responses:
+        '200':
+          description: List of security notices.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NoticeListResponse'
+  /notices/{notice_id}.json:
+    get:
+      operationId: getNotice
+      summary: Get Security Notice
+      description: Returns details for a specific Ubuntu Security Notice.
+      tags:
+      - Notices
+      parameters:
+      - name: notice_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Ubuntu Security Notice ID (e.g., USN-6789-1).
+      responses:
+        '200':
+          description: Security notice details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Notice'
+        '404':
+          description: Notice not found.
+components:
+  schemas:
+    NoticeListResponse:
+      type: object
+      properties:
+        notices:
+          type: array
+          items:
+            $ref: '#/components/schemas/Notice'
+        offset:
+          type: integer
+        limit:
+          type: integer
+        total_results:
+          type: integer
+    Notice:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Ubuntu Security Notice identifier.
+        title:
+          type: string
+          description: Notice title.
+        summary:
+          type: string
+          description: Summary of the vulnerability.
+        description:
+          type: string
+          description: Full description.
+        published:
+          type: string
+          format: date-time
+          description: Publication date.
+        cves:
+          type: array
+          items:
+            type: string
+          description: List of CVE IDs addressed by this notice.
+        packages:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              version:
+                type: string
+              release:
+                type: string

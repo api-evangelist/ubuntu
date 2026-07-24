@@ -1,0 +1,144 @@
+openapi: 3.0.0
+info:
+  title: Ubuntu Security CVE Bugs Info API
+  description: The Ubuntu Security CVE API provides programmatic access to Ubuntu's CVE (Common Vulnerabilities and Exposures) database. It enables querying security notices, CVE details, affected packages, and patch status across Ubuntu releases.
+  version: 1.0.0
+  contact:
+    name: Ubuntu Security Team
+    url: https://ubuntu.com/security
+servers:
+- url: https://ubuntu.com/security
+  description: Ubuntu Security API
+tags:
+- name: Info
+  description: Snap information and details
+paths:
+  /v2/snaps/info/{snap_name}:
+    get:
+      operationId: getSnapInfo
+      summary: Get Snap Info
+      description: Get detailed information about a specific snap and its released revisions.
+      tags:
+      - Info
+      parameters:
+      - name: snap_name
+        in: path
+        required: true
+        schema:
+          type: string
+        description: The snap package name.
+      - name: fields
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Comma-separated list of fields to return.
+      - name: Snap-Device-Series
+        in: header
+        required: true
+        schema:
+          type: string
+          default: '16'
+        description: Snap device series identifier.
+      responses:
+        '200':
+          description: Snap information.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SnapInfo'
+        '404':
+          description: Snap not found.
+components:
+  schemas:
+    Snap:
+      type: object
+      properties:
+        snap-id:
+          type: string
+          description: Unique snap identifier.
+        name:
+          type: string
+          description: Snap package name.
+        title:
+          type: string
+          description: Display title of the snap.
+        summary:
+          type: string
+          description: Short description of the snap.
+        description:
+          type: string
+          description: Full description of the snap.
+        publisher:
+          type: object
+          properties:
+            id:
+              type: string
+            username:
+              type: string
+            display-name:
+              type: string
+        channels:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/Channel'
+        categories:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+        media:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+              url:
+                type: string
+                format: uri
+              width:
+                type: integer
+              height:
+                type: integer
+        license:
+          type: string
+    SnapInfo:
+      type: object
+      properties:
+        name:
+          type: string
+        snap-id:
+          type: string
+        channel-map:
+          type: array
+          items:
+            type: object
+        default-track:
+          type: string
+        snap:
+          $ref: '#/components/schemas/Snap'
+    Channel:
+      type: object
+      properties:
+        channel:
+          type: string
+        revision:
+          type: integer
+        version:
+          type: string
+        released-at:
+          type: string
+          format: date-time
+        size:
+          type: integer
+        download:
+          type: object
+          properties:
+            url:
+              type: string
+              format: uri
+            sha3-384:
+              type: string

@@ -1,0 +1,71 @@
+openapi: 3.0.0
+info:
+  title: Ubuntu Security CVE Bugs Refresh API
+  description: The Ubuntu Security CVE API provides programmatic access to Ubuntu's CVE (Common Vulnerabilities and Exposures) database. It enables querying security notices, CVE details, affected packages, and patch status across Ubuntu releases.
+  version: 1.0.0
+  contact:
+    name: Ubuntu Security Team
+    url: https://ubuntu.com/security
+servers:
+- url: https://ubuntu.com/security
+  description: Ubuntu Security API
+tags:
+- name: Refresh
+  description: Snap update and refresh operations
+paths:
+  /v2/snaps/refresh:
+    post:
+      operationId: refreshSnaps
+      summary: Refresh Snaps
+      description: Check for and retrieve updates for installed snaps.
+      tags:
+      - Refresh
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                context:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      snap-id:
+                        type: string
+                      channel:
+                        type: string
+                      revision:
+                        type: integer
+                      tracking-channel:
+                        type: string
+                actions:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      action:
+                        type: string
+                        enum:
+                        - refresh
+                        - install
+                        - download
+                      snap-id:
+                        type: string
+                      name:
+                        type: string
+                      channel:
+                        type: string
+      responses:
+        '200':
+          description: Refresh results.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  results:
+                    type: array
+                    items:
+                      type: object

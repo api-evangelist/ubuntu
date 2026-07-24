@@ -1,0 +1,50 @@
+openapi: 3.0.0
+info:
+  title: Ubuntu Security CVE Bugs Distributions API
+  description: The Ubuntu Security CVE API provides programmatic access to Ubuntu's CVE (Common Vulnerabilities and Exposures) database. It enables querying security notices, CVE details, affected packages, and patch status across Ubuntu releases.
+  version: 1.0.0
+  contact:
+    name: Ubuntu Security Team
+    url: https://ubuntu.com/security
+servers:
+- url: https://ubuntu.com/security
+  description: Ubuntu Security API
+tags:
+- name: Distributions
+  description: Ubuntu distribution resources
+paths:
+  /ubuntu:
+    get:
+      operationId: getUbuntuDistribution
+      summary: Get Ubuntu Distribution
+      description: Returns information about the Ubuntu distribution in Launchpad.
+      tags:
+      - Distributions
+      responses:
+        '200':
+          description: Ubuntu distribution details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Distribution'
+components:
+  schemas:
+    Distribution:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Distribution name.
+        display_name:
+          type: string
+          description: Distribution display name.
+        title:
+          type: string
+        description:
+          type: string
+        web_link:
+          type: string
+          format: uri
+        self_link:
+          type: string
+          format: uri

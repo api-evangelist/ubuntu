@@ -1,0 +1,159 @@
+openapi: 3.0.0
+info:
+  title: Ubuntu Security CVE Bugs API
+  description: The Ubuntu Security CVE API provides programmatic access to Ubuntu's CVE (Common Vulnerabilities and Exposures) database. It enables querying security notices, CVE details, affected packages, and patch status across Ubuntu releases.
+  version: 1.0.0
+  contact:
+    name: Ubuntu Security Team
+    url: https://ubuntu.com/security
+servers:
+- url: https://ubuntu.com/security
+  description: Ubuntu Security API
+tags:
+- name: Bugs
+  description: Bug tracking and management
+paths:
+  /bugs:
+    get:
+      operationId: listBugs
+      summary: List Bugs
+      description: Returns a collection of bugs tracked in Launchpad.
+      tags:
+      - Bugs
+      parameters:
+      - name: ws.op
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Named operation to perform.
+      - name: status
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Filter bugs by status.
+      - name: ws.start
+        in: query
+        required: false
+        schema:
+          type: integer
+        description: Starting offset for pagination.
+      - name: ws.size
+        in: query
+        required: false
+        schema:
+          type: integer
+        description: Number of items per page.
+      responses:
+        '200':
+          description: Collection of bugs.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BugCollection'
+  /bugs/{bug_id}:
+    get:
+      operationId: getBug
+      summary: Get Bug
+      description: Returns details for a specific Launchpad bug.
+      tags:
+      - Bugs
+      parameters:
+      - name: bug_id
+        in: path
+        required: true
+        schema:
+          type: integer
+        description: Unique bug identifier.
+      responses:
+        '200':
+          description: Bug details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Bug'
+        '404':
+          description: Bug not found.
+    patch:
+      operationId: updateBug
+      summary: Update Bug
+      description: Update a bug's fields such as title, description, or status.
+      tags:
+      - Bugs
+      parameters:
+      - name: bug_id
+        in: path
+        required: true
+        schema:
+          type: integer
+        description: Unique bug identifier.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                description:
+                  type: string
+                tags:
+                  type: array
+                  items:
+                    type: string
+      responses:
+        '200':
+          description: Updated bug.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Bug'
+components:
+  schemas:
+    BugCollection:
+      type: object
+      properties:
+        total_size:
+          type: integer
+        start:
+          type: integer
+        entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/Bug'
+    Bug:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Unique bug identifier.
+        title:
+          type: string
+          description: Bug title.
+        description:
+          type: string
+          description: Full bug description.
+        status:
+          type: string
+          description: Current bug status.
+        importance:
+          type: string
+          description: Bug importance level.
+        tags:
+          type: array
+          items:
+            type: string
+        date_created:
+          type: string
+          format: date-time
+        date_last_updated:
+          type: string
+          format: date-time
+        web_link:
+          type: string
+          format: uri
+        self_link:
+          type: string
+          format: uri
