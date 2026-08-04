@@ -1,0 +1,36 @@
+{
+  "provider": "ubuntu",
+  "sources": [
+    "ubuntu-bugs-api-openapi.yml",
+    "ubuntu-categories-api-openapi.yml",
+    "ubuntu-cves-api-openapi.yml",
+    "ubuntu-distributions-api-openapi.yml",
+    "ubuntu-info-api-openapi.yml",
+    "ubuntu-metrics-api-openapi.yml",
+    "ubuntu-notices-api-openapi.yml",
+    "ubuntu-packages-api-openapi.yml",
+    "ubuntu-people-api-openapi.yml",
+    "ubuntu-projects-api-openapi.yml",
+    "ubuntu-refresh-api-openapi.yml",
+    "ubuntu-search-api-openapi.yml"
+  ],
+  "outputs": [
+    "ubuntu-bugs-api-openapi.yml",
+    "ubuntu-categories-api-openapi.yml",
+    "ubuntu-cves-api-openapi.yml",
+    "ubuntu-distributions-api-openapi.yml",
+    "ubuntu-info-api-openapi.yml",
+    "ubuntu-metrics-api-openapi.yml",
+    "ubuntu-notices-api-openapi.yml",
+    "ubuntu-packages-api-openapi.yml",
+    "ubuntu-people-api-openapi.yml",
+    "ubuntu-projects-api-openapi.yml",
+    "ubuntu-refresh-api-openapi.yml",
+    "ubuntu-search-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

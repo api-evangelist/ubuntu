@@ -1,0 +1,362 @@
+openapi: 3.0.0
+info:
+  title: Snap Store Devices API
+  description: >-
+    The Snap Store Devices API provides access to the Canonical Snap Store for
+    querying, discovering, and managing snap packages. Supports snap search, info
+    retrieval, refresh operations, category listings, and metrics for IoT and
+    desktop deployments.
+  version: "104"
+  contact:
+    name: Snapcraft Community
+    url: https://forum.snapcraft.io
+servers:
+  - url: https://api.snapcraft.io
+    description: Snap Store Production API
+tags:
+  - name: Search
+    description: Snap search and discovery
+  - name: Info
+    description: Snap information and details
+  - name: Refresh
+    description: Snap update and refresh operations
+  - name: Categories
+    description: Snap category listings
+  - name: Metrics
+    description: Snap usage metrics
+  - name: Auth
+    description: Device authentication
+paths:
+  /v2/snaps/search:
+    get:
+      operationId: searchSnaps
+      summary: Search Snaps
+      description: Search for snaps in the Snap Store by name, keyword, or category.
+      tags:
+        - Search
+      parameters:
+        - name: q
+          in: query
+          required: false
+          schema:
+            type: string
+          description: Search query string.
+        - name: category
+          in: query
+          required: false
+          schema:
+            type: string
+          description: Filter by snap category.
+        - name: scope
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - wide
+          description: Search scope. Use 'wide' for cross-store search.
+        - name: fields
+          in: query
+          required: false
+          schema:
+            type: string
+          description: Comma-separated list of fields to include in the response.
+        - name: Snap-Device-Series
+          in: header
+          required: true
+          schema:
+            type: string
+            default: "16"
+          description: Snap device series identifier.
+        - name: User-Agent
+          in: header
+          required: true
+          schema:
+            type: string
+          description: Client user agent string.
+      responses:
+        '200':
+          description: List of matching snaps.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/SnapResult'
+                  total:
+                    type: integer
+
+  /v2/snaps/info/{snap_name}:
+    get:
+      operationId: getSnapInfo
+      summary: Get Snap Info
+      description: Get detailed information about a specific snap and its released revisions.
+      tags:
+        - Info
+      parameters:
+        - name: snap_name
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The snap package name.
+        - name: fields
+          in: query
+          required: false
+          schema:
+            type: string
+          description: Comma-separated list of fields to return.
+        - name: Snap-Device-Series
+          in: header
+          required: true
+          schema:
+            type: string
+            default: "16"
+          description: Snap device series identifier.
+      responses:
+        '200':
+          description: Snap information.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SnapInfo'
+        '404':
+          description: Snap not found.
+
+  /v2/snaps/refresh:
+    post:
+      operationId: refreshSnaps
+      summary: Refresh Snaps
+      description: Check for and retrieve updates for installed snaps.
+      tags:
+        - Refresh
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                context:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      snap-id:
+                        type: string
+                      channel:
+                        type: string
+                      revision:
+                        type: integer
+                      tracking-channel:
+                        type: string
+                actions:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      action:
+                        type: string
+                        enum:
+                          - refresh
+                          - install
+                          - download
+                      snap-id:
+                        type: string
+                      name:
+                        type: string
+                      channel:
+                        type: string
+      responses:
+        '200':
+          description: Refresh results.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  results:
+                    type: array
+                    items:
+                      type: object
+
+  /v2/snaps/categories:
+    get:
+      operationId: listSnapCategories
+      summary: List Snap Categories
+      description: Returns all available snap categories in the store.
+      tags:
+        - Categories
+      parameters:
+        - name: Snap-Device-Series
+          in: header
+          required: true
+          schema:
+            type: string
+            default: "16"
+          description: Snap device series identifier.
+      responses:
+        '200':
+          description: List of snap categories.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Category'
+
+  /v2/metrics:
+    get:
+      operationId: getSnapMetrics
+      summary: Get Snap Metrics
+      description: Returns usage and install metrics for snaps.
+      tags:
+        - Metrics
+      parameters:
+        - name: snap_name
+          in: query
+          required: false
+          schema:
+            type: string
+          description: Filter metrics by snap name.
+        - name: start
+          in: query
+          required: false
+          schema:
+            type: string
+            format: date
+          description: Start date for metrics range.
+        - name: end
+          in: query
+          required: false
+          schema:
+            type: string
+            format: date
+          description: End date for metrics range.
+      responses:
+        '200':
+          description: Snap metrics data.
+          content:
+            application/json:
+              schema:
+                type: object
+
+components:
+  schemas:
+    SnapResult:
+      type: object
+      properties:
+        snap:
+          $ref: '#/components/schemas/Snap'
+        result:
+          type: string
+
+    Snap:
+      type: object
+      properties:
+        snap-id:
+          type: string
+          description: Unique snap identifier.
+        name:
+          type: string
+          description: Snap package name.
+        title:
+          type: string
+          description: Display title of the snap.
+        summary:
+          type: string
+          description: Short description of the snap.
+        description:
+          type: string
+          description: Full description of the snap.
+        publisher:
+          type: object
+          properties:
+            id:
+              type: string
+            username:
+              type: string
+            display-name:
+              type: string
+        channels:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/Channel'
+        categories:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+        media:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+              url:
+                type: string
+                format: uri
+              width:
+                type: integer
+              height:
+                type: integer
+        license:
+          type: string
+
+    SnapInfo:
+      type: object
+      properties:
+        name:
+          type: string
+        snap-id:
+          type: string
+        channel-map:
+          type: array
+          items:
+            type: object
+        default-track:
+          type: string
+        snap:
+          $ref: '#/components/schemas/Snap'
+
+    Channel:
+      type: object
+      properties:
+        channel:
+          type: string
+        revision:
+          type: integer
+        version:
+          type: string
+        released-at:
+          type: string
+          format: date-time
+        size:
+          type: integer
+        download:
+          type: object
+          properties:
+            url:
+              type: string
+              format: uri
+            sha3-384:
+              type: string
+
+    Category:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Category identifier.
+        title:
+          type: string
+          description: Display name of the category.
