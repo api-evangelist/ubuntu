@@ -5,7 +5,7 @@
       "source": "https://ubuntu.com/security/notices/rss.xml",
       "feed_url": "https://ubuntu.com/security/notices/rss.xml",
       "title": "",
-      "saved": 0,
+      "saved": 10,
       "method": "feed"
     },
     {
@@ -13,6 +13,6 @@
       "error": "HTTPError"
     }
   ],
-  "post_count": 120,
-  "fetched": "2026-08-06T14:08:46Z"
+  "post_count": 130,
+  "fetched": "2026-08-15T12:11:08Z"
 }
