@@ -612,4 +612,4 @@ properties:
     type: JSONLDContext
   - url: capabilities/package-and-security-management.yaml
     type: X-NaftikoCapabilities
-specificationVersion: '0.19'
+specificationVersion: '0.23'
