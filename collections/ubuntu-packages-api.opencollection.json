@@ -1,0 +1,37 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Ubuntu Security CVE Bugs Packages API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Packages",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Source Package",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ubuntu.com/security/ubuntu/+source/:source_package_name",
+            "params": [
+              {
+                "name": "source_package_name",
+                "value": "",
+                "type": "path",
+                "description": "Source package name."
+              }
+            ]
+          },
+          "docs": "Returns details for a specific Ubuntu source package."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

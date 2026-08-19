@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Ubuntu Security CVE Bugs Distributions API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Distributions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Ubuntu Distribution",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ubuntu.com/security/ubuntu"
+          },
+          "docs": "Returns information about the Ubuntu distribution in Launchpad."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

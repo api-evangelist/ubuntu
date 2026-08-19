@@ -1,0 +1,102 @@
+{
+  "item": [
+    {
+      "id": "6d18c0c6-f550-48d9-bc03-3e08a96a5464",
+      "name": "Distributions",
+      "description": {
+        "content": "Ubuntu distribution resources",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "eb690a46-b059-44c0-956b-717c8901a7e9",
+          "name": "Get Ubuntu Distribution",
+          "request": {
+            "name": "Get Ubuntu Distribution",
+            "description": {
+              "content": "Returns information about the Ubuntu distribution in Launchpad.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ubuntu"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2bc0e28b-87b5-4a7f-8b84-0dd5c1182c55",
+              "name": "Ubuntu distribution details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ubuntu"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"display_name\": \"string\",\n  \"title\": \"string\",\n  \"description\": \"string\",\n  \"web_link\": \"https://fNWUPQeCqrzBLtxrcyQFD.sim6XSgVJerYhhxuaYgZP\",\n  \"self_link\": \"https://nvJYoVfcAAysFfnH.ixweI.Ozbrcf4jT5qF0PHe,bjrHHX7wQ+cihy4CLFL,2ZsPRQJc74HzXhbP5\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://ubuntu.com/security",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "cb6f4108-9a59-48be-b47d-01f89b905151",
+    "name": "Ubuntu Security CVE Bugs Distributions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Ubuntu Security CVE API provides programmatic access to Ubuntu's CVE (Common Vulnerabilities and Exposures) database. It enables querying security notices, CVE details, affected packages, and patch status across Ubuntu releases.\n\nContact Support:\n Name: Ubuntu Security Team",
+      "type": "text/plain"
+    }
+  }
+}

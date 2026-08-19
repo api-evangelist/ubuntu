@@ -1,0 +1,379 @@
+{
+  "item": [
+    {
+      "id": "84113b99-7a97-4f3c-bb68-e00d07414b2a",
+      "name": "Bugs",
+      "description": {
+        "content": "Bug tracking and management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "cc20425a-fa67-4f35-b924-3a0b8ffcd092",
+          "name": "List Bugs",
+          "request": {
+            "name": "List Bugs",
+            "description": {
+              "content": "Returns a collection of bugs tracked in Launchpad.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bugs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ws.op",
+                  "value": "<string>",
+                  "description": "Named operation to perform."
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "Filter bugs by status."
+                },
+                {
+                  "disabled": false,
+                  "key": "ws.start",
+                  "value": "<integer>",
+                  "description": "Starting offset for pagination."
+                },
+                {
+                  "disabled": false,
+                  "key": "ws.size",
+                  "value": "<integer>",
+                  "description": "Number of items per page."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "47a65bd2-a506-4c54-927f-afb563aadc5d",
+              "name": "Collection of bugs.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bugs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ws.op",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ws.start",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "ws.size",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total_size\": 9654,\n  \"start\": 899,\n  \"entries\": [\n    {\n      \"id\": 7517,\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"status\": \"string\",\n      \"importance\": \"string\",\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"date_created\": \"1960-04-18T17:14:27.883Z\",\n      \"date_last_updated\": \"2007-06-05T17:35:04.374Z\",\n      \"web_link\": \"https://OJkSPSPIMFPzVTuUygUzr.alPFSFZkY-hebzaFhza3YFiDhVd4oQzPqYwvjzjOCC-aw\",\n      \"self_link\": \"https://izukkIMlbV.gmorMaAncd2ilZ4ejsHkG2z+zXnv2aX5AIVoObhSsGCHZqb\"\n    },\n    {\n      \"id\": 2156,\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"status\": \"string\",\n      \"importance\": \"string\",\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"date_created\": \"1980-07-14T14:04:05.146Z\",\n      \"date_last_updated\": \"1964-01-14T15:42:46.921Z\",\n      \"web_link\": \"http://KwhaoFWAyhmyIAWWnNcRXbWPwzkJHpCe.cppdP.VMlg6eSVG13H,rBWJlCG22hxzdAMRWitJXTFSvq1zP8fCGW1xSm21a1OVMWg9gKvM\",\n      \"self_link\": \"https://HygWtpLRj.uwty6m5D.WhOB-EOyMvhPBUC8qSxX+3zmusx3Y8vyO\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a488679d-2ff1-4ddb-992e-be369af41cad",
+          "name": "Get Bug",
+          "request": {
+            "name": "Get Bug",
+            "description": {
+              "content": "Returns details for a specific Launchpad bug.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bugs",
+                ":bug_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "bug_id",
+                  "description": "(Required) Unique bug identifier."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a100564a-2ef6-4fc3-acaf-4b44771f19ec",
+              "name": "Bug details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bugs",
+                    ":bug_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "bug_id",
+                      "description": "(Required) Unique bug identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 5772,\n  \"title\": \"string\",\n  \"description\": \"string\",\n  \"status\": \"string\",\n  \"importance\": \"string\",\n  \"tags\": [\n    \"string\",\n    \"string\"\n  ],\n  \"date_created\": \"1958-07-01T10:45:09.701Z\",\n  \"date_last_updated\": \"1998-10-29T23:56:47.934Z\",\n  \"web_link\": \"https://ndAVQXFnusFMnUUJzspVxA.hbnKM+0Y,oVExI,in.FpdWokH6JjRYFsRBsGf7X\",\n  \"self_link\": \"http://mgahdJIucEGnnPYX.vjypOhV8kbooa.eL6ff6D,rk\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7cac52c4-705c-4ba1-ba69-c6d33cc36415",
+              "name": "Bug not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bugs",
+                    ":bug_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "bug_id",
+                      "description": "(Required) Unique bug identifier."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f31b7c7e-4859-4e28-9e37-82ed64cbcb92",
+          "name": "Update Bug",
+          "request": {
+            "name": "Update Bug",
+            "description": {
+              "content": "Update a bug's fields such as title, description, or status.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bugs",
+                ":bug_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "bug_id",
+                  "description": "(Required) Unique bug identifier."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7d37cb79-1c47-4cce-b519-2a264dfa889a",
+              "name": "Updated bug.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bugs",
+                    ":bug_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "bug_id",
+                      "description": "(Required) Unique bug identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 5772,\n  \"title\": \"string\",\n  \"description\": \"string\",\n  \"status\": \"string\",\n  \"importance\": \"string\",\n  \"tags\": [\n    \"string\",\n    \"string\"\n  ],\n  \"date_created\": \"1958-07-01T10:45:09.701Z\",\n  \"date_last_updated\": \"1998-10-29T23:56:47.934Z\",\n  \"web_link\": \"https://ndAVQXFnusFMnUUJzspVxA.hbnKM+0Y,oVExI,in.FpdWokH6JjRYFsRBsGf7X\",\n  \"self_link\": \"http://mgahdJIucEGnnPYX.vjypOhV8kbooa.eL6ff6D,rk\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://ubuntu.com/security",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "68e0cfab-cd75-4dfa-9908-05c2504ab37d",
+    "name": "Ubuntu Security CVE Bugs API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Ubuntu Security CVE API provides programmatic access to Ubuntu's CVE (Common Vulnerabilities and Exposures) database. It enables querying security notices, CVE details, affected packages, and patch status across Ubuntu releases.\n\nContact Support:\n Name: Ubuntu Security Team",
+      "type": "text/plain"
+    }
+  }
+}

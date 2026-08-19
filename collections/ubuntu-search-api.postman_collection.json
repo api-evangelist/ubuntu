@@ -1,0 +1,172 @@
+{
+  "item": [
+    {
+      "id": "dab011e4-e3cd-4b17-bf6e-041f2bb5fdc3",
+      "name": "Search",
+      "description": {
+        "content": "Snap search and discovery",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4f6cf621-ee07-4d76-ad1a-e14a0a256e94",
+          "name": "Search Snaps",
+          "request": {
+            "name": "Search Snaps",
+            "description": {
+              "content": "Search for snaps in the Snap Store by name, keyword, or category.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "snaps",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "Search query string."
+                },
+                {
+                  "disabled": false,
+                  "key": "category",
+                  "value": "<string>",
+                  "description": "Filter by snap category."
+                },
+                {
+                  "disabled": false,
+                  "key": "scope",
+                  "value": "<string>",
+                  "description": "Search scope. Use 'wide' for cross-store search."
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Comma-separated list of fields to include in the response."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Snap device series identifier.",
+                "key": "Snap-Device-Series",
+                "value": "16"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) Client user agent string.",
+                "key": "User-Agent",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1b4b331c-9c4f-4c44-8231-9ddeb24b1467",
+              "name": "List of matching snaps.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "snaps",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "category",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scope",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Snap device series identifier.",
+                    "key": "Snap-Device-Series",
+                    "value": "16"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Client user agent string.",
+                    "key": "User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": [\n    {\n      \"snap\": {\n        \"snap-id\": \"string\",\n        \"name\": \"string\",\n        \"title\": \"string\",\n        \"summary\": \"string\",\n        \"description\": \"string\",\n        \"publisher\": {\n          \"id\": \"string\",\n          \"username\": \"string\",\n          \"display-name\": \"string\"\n        },\n        \"channels\": {\n          \"key_0\": {\n            \"channel\": \"string\",\n            \"revision\": 7054,\n            \"version\": \"string\",\n            \"released-at\": \"1997-11-28T09:22:07.316Z\",\n            \"size\": 7551,\n            \"download\": {\n              \"url\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"sha3-384\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          \"key_1\": {\n            \"channel\": \"string\",\n            \"revision\": 8089,\n            \"version\": \"string\",\n            \"released-at\": \"1985-06-21T09:04:58.785Z\",\n            \"size\": 239,\n            \"download\": {\n              \"url\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"sha3-384\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          \"key_2\": {\n            \"channel\": \"string\",\n            \"revision\": 9817,\n            \"version\": \"string\",\n            \"released-at\": \"2018-02-12T03:14:21.076Z\",\n            \"size\": 3329,\n            \"download\": {\n              \"url\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"sha3-384\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          }\n        },\n        \"categories\": [\n          {\n            \"name\": \"string\"\n          },\n          {\n            \"name\": \"string\"\n          }\n        ],\n        \"media\": [\n          {\n            \"type\": \"string\",\n            \"url\": \"https://wNyelnKDCnVTSztoaNyIDFeK.jfqshqknX3fvIBEAGScdebNP9MQ3A9ks0QFrdsNoJw4VFzslW4BN\",\n            \"width\": 4209,\n            \"height\": 8373\n          },\n          {\n            \"type\": \"string\",\n            \"url\": \"https://ZtrY.qrzkW9a4q0T0cUU,nr,Vf9m,3qvR8jnVXDV-A8V3UnlKDKI27PKSS5pbNpwtuv6aefeEmz\",\n            \"width\": 6045,\n            \"height\": 2083\n          }\n        ],\n        \"license\": \"string\"\n      },\n      \"result\": \"string\"\n    },\n    {\n      \"snap\": {\n        \"snap-id\": \"string\",\n        \"name\": \"string\",\n        \"title\": \"string\",\n        \"summary\": \"string\",\n        \"description\": \"string\",\n        \"publisher\": {\n          \"id\": \"string\",\n          \"username\": \"string\",\n          \"display-name\": \"string\"\n        },\n        \"channels\": {\n          \"key_0\": {\n            \"channel\": \"string\",\n            \"revision\": 9915,\n            \"version\": \"string\",\n            \"released-at\": \"1964-04-30T21:35:16.010Z\",\n            \"size\": 6079,\n            \"download\": {\n              \"url\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"sha3-384\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          \"key_1\": {\n            \"channel\": \"string\",\n            \"revision\": 3487,\n            \"version\": \"string\",\n            \"released-at\": \"2001-12-15T13:52:49.990Z\",\n            \"size\": 3877,\n            \"download\": {\n              \"url\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"sha3-384\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          }\n        },\n        \"categories\": [\n          {\n            \"name\": \"string\"\n          },\n          {\n            \"name\": \"string\"\n          }\n        ],\n        \"media\": [\n          {\n            \"type\": \"string\",\n            \"url\": \"https://kPAf.fpygdtckSgUK1xPORAAeMHU8xysaG1lxV8\",\n            \"width\": 5007,\n            \"height\": 2068\n          },\n          {\n            \"type\": \"string\",\n            \"url\": \"https://DClMxeuHxJeayNQauIhBhwgqGNhF.otyQzBTJu1lZZ3hUuLL2.,nK5llTgzUdccY80tUKueYoiK0NznHgLUDQJJayXDfwIhQR\",\n            \"width\": 2060,\n            \"height\": 268\n          }\n        ],\n        \"license\": \"string\"\n      },\n      \"result\": \"string\"\n    }\n  ],\n  \"total\": 751\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://ubuntu.com/security",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "941d16a7-8ab2-4e05-a988-805a1c27acba",
+    "name": "Ubuntu Security CVE Bugs Search API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Ubuntu Security CVE API provides programmatic access to Ubuntu's CVE (Common Vulnerabilities and Exposures) database. It enables querying security notices, CVE details, affected packages, and patch status across Ubuntu releases.\n\nContact Support:\n Name: Ubuntu Security Team",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,253 @@
+{
+  "item": [
+    {
+      "id": "612275ad-c0a2-4331-92db-01b79d568712",
+      "name": "People",
+      "description": {
+        "content": "People and team resources",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1d548564-3af6-4d17-b28d-b9923c9e9390",
+          "name": "List People",
+          "request": {
+            "name": "List People",
+            "description": {
+              "content": "Returns a collection of people and teams registered in Launchpad.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "people"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ws.op",
+                  "value": "<string>",
+                  "description": "Named operation to perform on the collection."
+                },
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "Search query string for people."
+                },
+                {
+                  "disabled": false,
+                  "key": "ws.start",
+                  "value": "<integer>",
+                  "description": "Starting offset for pagination."
+                },
+                {
+                  "disabled": false,
+                  "key": "ws.size",
+                  "value": "<integer>",
+                  "description": "Number of items to return."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "28117075-d5d4-4d11-a17f-4fe6bbe4efde",
+              "name": "Collection of people.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "people"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ws.op",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ws.start",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "ws.size",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total_size\": 253,\n  \"start\": 7662,\n  \"entries\": [\n    {\n      \"name\": \"string\",\n      \"display_name\": \"string\",\n      \"email_addresses_collection_link\": \"https://c.xjXJyMcIxK1NsaJk4Owp7XetFk3y0E2zzTxgzF+LxDAE9UKpHDuRIkVv4Xi9w\",\n      \"bugs_reported_collection_link\": \"https://XiGnVHBfwgphQhIywJQtuopghTW.ttEpTxi+WV0qQVF7UbcNPaMaVQ-qgAhbB-pg,UqmHLBZrkFv1OFx-dTGJV5H9I\",\n      \"teams_participated_in_collection_link\": \"http://iUmejUDOTfJcrJJM.dnEw3\",\n      \"web_link\": \"https://M.rsupGNM+i\",\n      \"self_link\": \"https://ZhfqeplnaCAYdjBKcZPhdSWGxlVL.iztczhkGUkc.Kec3,,5CZRikmROinJ+6SD+SUFCZj,MprN3dqhE2kir6hCpBt99\"\n    },\n    {\n      \"name\": \"string\",\n      \"display_name\": \"string\",\n      \"email_addresses_collection_link\": \"https://pkiZZsdzOJtCC.tuu8U9mdBc4CTXn375u1TdLYrl86P+kvN1mtBsBj2NEczjnLxRYP.XikMfK\",\n      \"bugs_reported_collection_link\": \"https://yaAxeQMkK.dnrlKXLFplW-+Hb6dWgCxkgssL.DY\",\n      \"teams_participated_in_collection_link\": \"http://rtstCVBJxUlblKPMdCKRbOhjkMaGqii.kvua0HdD8uahD8tsw-Z3Gw.RN1MmyLdNW2luqBeKNiPQvVSFqK6LTwjSD\",\n      \"web_link\": \"http://BRvbIqCLqPBwLqVWsAPJd.csswB9vpBSiIsNMOjGEQC8BgcNzsXL2frTrzv8tZqogXm26-\",\n      \"self_link\": \"https://UTcBwMgRVMssKV.jjwUbsbOk4,uP01RfUrLzQ,r33I3\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "217a9d52-eeff-402f-9bad-a0593d358b91",
+          "name": "Get Person",
+          "request": {
+            "name": "Get Person",
+            "description": {
+              "content": "Returns information about a specific Launchpad person or team.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "~{{person_name}}"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3c7dc699-b190-43f0-80b7-f845eee53d90",
+              "name": "Person or team details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "~{{person_name}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"display_name\": \"string\",\n  \"email_addresses_collection_link\": \"http://dbTwBxCzABfV.xwo0YiGUPgrLNc-hXeQNmSkYYonLA,ovj\",\n  \"bugs_reported_collection_link\": \"https://JRBbtlL.inpPcq8PuInCR-f1QJdZV,lxkmLM\",\n  \"teams_participated_in_collection_link\": \"https://rLCrQuTlYFzxGoJgcGurxgHeGoytfsRWD.tppkj0QfwYrfN,QiLTxafkDyG9I8DEhZf0B-6Cxtsm0IOBS\",\n  \"web_link\": \"http://soUYvqtLRlhyqlsXjYdJSrm.bvttNn7954qjewzvJGSndwHwR,BygRt,2QRYWsJ7VKdiAiMyq5xxC8HgGQs\",\n  \"self_link\": \"https://YskjwupxRbJFqEbZLTV.uryMXKUE.4RmNEsxeA6whu4cLNn4bhzoG\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "abdc8efd-0eca-4e43-aeb6-92b66324be71",
+              "name": "Person not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "~{{person_name}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://ubuntu.com/security",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) Launchpad username or team name.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "person_name"
+    }
+  ],
+  "info": {
+    "_postman_id": "443f4e6a-21a8-4318-b9e2-6aac59f9252c",
+    "name": "Ubuntu Security CVE Bugs People API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Ubuntu Security CVE API provides programmatic access to Ubuntu's CVE (Common Vulnerabilities and Exposures) database. It enables querying security notices, CVE details, affected packages, and patch status across Ubuntu releases.\n\nContact Support:\n Name: Ubuntu Security Team",
+      "type": "text/plain"
+    }
+  }
+}

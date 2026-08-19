@@ -1,0 +1,49 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Ubuntu Security CVE Bugs Info API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Info",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Snap Info",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ubuntu.com/security/v2/snaps/info/:snap_name",
+            "headers": [
+              {
+                "name": "Snap-Device-Series",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "snap_name",
+                "value": "",
+                "type": "path",
+                "description": "The snap package name."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to return."
+              }
+            ]
+          },
+          "docs": "Get detailed information about a specific snap and its released revisions."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,246 @@
+{
+  "item": [
+    {
+      "id": "550ef04f-30d4-46e0-b02a-ce5b28677ed3",
+      "name": "Notices",
+      "description": {
+        "content": "Ubuntu Security Notices",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a213c634-04ce-404c-a503-71748d171bf6",
+          "name": "List Security Notices",
+          "request": {
+            "name": "List Security Notices",
+            "description": {
+              "content": "Returns Ubuntu Security Notices (USN) for published vulnerabilities.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "notices.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Pagination offset."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Number of notices to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "release",
+                  "value": "<string>",
+                  "description": "Filter notices by Ubuntu release codename."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a35c33b9-de5e-49f5-86d2-78a3f70deba4",
+              "name": "List of security notices.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notices.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "release",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"notices\": [\n    {\n      \"id\": \"string\",\n      \"title\": \"string\",\n      \"summary\": \"string\",\n      \"description\": \"string\",\n      \"published\": \"1984-12-30T14:37:29.877Z\",\n      \"cves\": [\n        \"string\",\n        \"string\"\n      ],\n      \"packages\": [\n        {\n          \"name\": \"string\",\n          \"version\": \"string\",\n          \"release\": \"string\"\n        },\n        {\n          \"name\": \"string\",\n          \"version\": \"string\",\n          \"release\": \"string\"\n        }\n      ]\n    },\n    {\n      \"id\": \"string\",\n      \"title\": \"string\",\n      \"summary\": \"string\",\n      \"description\": \"string\",\n      \"published\": \"1982-04-20T22:26:58.354Z\",\n      \"cves\": [\n        \"string\",\n        \"string\"\n      ],\n      \"packages\": [\n        {\n          \"name\": \"string\",\n          \"version\": \"string\",\n          \"release\": \"string\"\n        },\n        {\n          \"name\": \"string\",\n          \"version\": \"string\",\n          \"release\": \"string\"\n        }\n      ]\n    }\n  ],\n  \"offset\": 8877,\n  \"limit\": 3521,\n  \"total_results\": 4150\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "170071b1-47a4-46a4-b1c7-595415653287",
+          "name": "Get Security Notice",
+          "request": {
+            "name": "Get Security Notice",
+            "description": {
+              "content": "Returns details for a specific Ubuntu Security Notice.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "notices",
+                "{{notice_id}}.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "460f2f4b-cb9c-4457-aa39-3a4c9b39ea13",
+              "name": "Security notice details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notices",
+                    "{{notice_id}}.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"title\": \"string\",\n  \"summary\": \"string\",\n  \"description\": \"string\",\n  \"published\": \"2001-10-26T17:02:41.876Z\",\n  \"cves\": [\n    \"string\",\n    \"string\"\n  ],\n  \"packages\": [\n    {\n      \"name\": \"string\",\n      \"version\": \"string\",\n      \"release\": \"string\"\n    },\n    {\n      \"name\": \"string\",\n      \"version\": \"string\",\n      \"release\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4f3c89a4-5321-468f-b3d3-2f651fb145c3",
+              "name": "Notice not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notices",
+                    "{{notice_id}}.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://ubuntu.com/security",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) Ubuntu Security Notice ID (e.g., USN-6789-1).",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "notice_id"
+    }
+  ],
+  "info": {
+    "_postman_id": "2e41be7e-04b2-4b7b-92c9-145c5ad2b3c4",
+    "name": "Ubuntu Security CVE Bugs Notices API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Ubuntu Security CVE API provides programmatic access to Ubuntu's CVE (Common Vulnerabilities and Exposures) database. It enables querying security notices, CVE details, affected packages, and patch status across Ubuntu releases.\n\nContact Support:\n Name: Ubuntu Security Team",
+      "type": "text/plain"
+    }
+  }
+}

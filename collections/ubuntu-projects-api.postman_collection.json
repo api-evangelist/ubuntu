@@ -1,0 +1,264 @@
+{
+  "item": [
+    {
+      "id": "1a1ba422-2323-4f83-bd5e-c87ea678e6f2",
+      "name": "Projects",
+      "description": {
+        "content": "Open-source project resources",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "565fd90b-de0c-4cb0-b182-abee0c2e5a07",
+          "name": "List Projects",
+          "request": {
+            "name": "List Projects",
+            "description": {
+              "content": "Returns a collection of projects registered in Launchpad.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "projects"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ws.op",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "Project search query."
+                },
+                {
+                  "disabled": false,
+                  "key": "ws.start",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "ws.size",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1c511319-a783-4fff-b4c4-88f24bd8be54",
+              "name": "Collection of projects.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ws.op",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ws.start",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "ws.size",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total_size\": 2969,\n  \"start\": 1093,\n  \"entries\": [\n    {\n      \"name\": \"string\",\n      \"display_name\": \"string\",\n      \"title\": \"string\",\n      \"summary\": \"string\",\n      \"description\": \"string\",\n      \"homepage_url\": \"https://PiZthkkhjwIwDcMX.zeJRB+tDRZ,BPB.MsIUV+kzCcul3IFb8urFcFidw,27mzB2zr\",\n      \"programming_language\": \"string\",\n      \"web_link\": \"https://Q.beDzDajA,\",\n      \"self_link\": \"http://wqc.bcnphuBfwMT8cQQ2t.69x6OI1aN8zOuP\"\n    },\n    {\n      \"name\": \"string\",\n      \"display_name\": \"string\",\n      \"title\": \"string\",\n      \"summary\": \"string\",\n      \"description\": \"string\",\n      \"homepage_url\": \"http://yyVHVMxyRFXKdVkuGPxoSweKiPalBhLy.fahhivuxpTUtj6srfZ.JVhRVjKytDmLadG-deslNi6LSL3t7\",\n      \"programming_language\": \"string\",\n      \"web_link\": \"http://NahlBHONAgilpBfh.thJ\",\n      \"self_link\": \"http://TaqBJfdXTR.imvh-Z4QgD1WIF1zn+qX.WbXQ3B-JEy.CQdjGYPj1EmAGPa1nKnakHr\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e92c07b6-b884-4c95-9161-01005b1db327",
+          "name": "Get Project",
+          "request": {
+            "name": "Get Project",
+            "description": {
+              "content": "Returns details for a specific Launchpad project.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":project_name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project_name",
+                  "description": "(Required) Launchpad project name."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2c9ed4b5-9f9e-4064-98de-df6dc45066fa",
+              "name": "Project details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":project_name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project_name",
+                      "description": "(Required) Launchpad project name."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"display_name\": \"string\",\n  \"title\": \"string\",\n  \"summary\": \"string\",\n  \"description\": \"string\",\n  \"homepage_url\": \"https://KrMMsJg.xqtfWlPeEk3RkO3lohon7AsRC-XPa,GA0CfIOYXnhVWajJR9nSH\",\n  \"programming_language\": \"string\",\n  \"web_link\": \"https://RakDwdjwxxPeWbYVdkoO.vic67GsuOwih6isAWRhRJCBwpQOR0dbMN0oD,2e\",\n  \"self_link\": \"https://gzjhQWlm.fyziGTmFh61HPjmqWNDYn0ahPynlanHjWN1Seizvf-+0GbDO7mDqhFZM6IuOd\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3acc64d2-ce8b-45e5-a759-c2fffd83c6f4",
+              "name": "Project not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":project_name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project_name",
+                      "description": "(Required) Launchpad project name."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://ubuntu.com/security",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "3391d25b-867b-40c4-9147-63abb98bb9fe",
+    "name": "Ubuntu Security CVE Bugs Projects API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Ubuntu Security CVE API provides programmatic access to Ubuntu's CVE (Common Vulnerabilities and Exposures) database. It enables querying security notices, CVE details, affected packages, and patch status across Ubuntu releases.\n\nContact Support:\n Name: Ubuntu Security Team",
+      "type": "text/plain"
+    }
+  }
+}

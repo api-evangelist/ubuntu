@@ -1,0 +1,92 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Ubuntu Security CVE Bugs CVEs API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "CVEs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List CVEs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ubuntu.com/security/cves.json",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Search query for CVE IDs or descriptions."
+              },
+              {
+                "name": "package",
+                "value": "",
+                "type": "query",
+                "description": "Filter CVEs by affected package name."
+              },
+              {
+                "name": "priority",
+                "value": "",
+                "type": "query",
+                "description": "Filter by CVE priority level."
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Filter by fix status."
+              },
+              {
+                "name": "codename",
+                "value": "",
+                "type": "query",
+                "description": "Filter by Ubuntu release codename (e.g., jammy, noble)."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Pagination offset."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of CVEs to return per page."
+              }
+            ]
+          },
+          "docs": "Returns a paginated list of CVEs affecting Ubuntu packages."
+        },
+        {
+          "info": {
+            "name": "Get CVE",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ubuntu.com/security/cves/:cve_id.json",
+            "params": [
+              {
+                "name": "cve_id",
+                "value": "",
+                "type": "path",
+                "description": "CVE identifier (e.g., CVE-2024-1234)."
+              }
+            ]
+          },
+          "docs": "Returns detailed information about a specific CVE."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

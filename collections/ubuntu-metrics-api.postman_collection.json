@@ -1,0 +1,136 @@
+{
+  "item": [
+    {
+      "id": "715dd675-b89b-499f-b0c1-20df623265bd",
+      "name": "Metrics",
+      "description": {
+        "content": "Snap usage metrics",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "24c180f8-24ed-4950-a222-5edb6a8330b4",
+          "name": "Get Snap Metrics",
+          "request": {
+            "name": "Get Snap Metrics",
+            "description": {
+              "content": "Returns usage and install metrics for snaps.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "metrics"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "snap_name",
+                  "value": "<string>",
+                  "description": "Filter metrics by snap name."
+                },
+                {
+                  "disabled": false,
+                  "key": "start",
+                  "value": "<date>",
+                  "description": "Start date for metrics range."
+                },
+                {
+                  "disabled": false,
+                  "key": "end",
+                  "value": "<date>",
+                  "description": "End date for metrics range."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2f445a94-b6b0-42a8-9aa1-71ff72280965",
+              "name": "Snap metrics data.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "metrics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "snap_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "start",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "end",
+                      "value": "<date>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://ubuntu.com/security",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "075cf77e-ff68-4b74-974a-c8bedc8d2c2c",
+    "name": "Ubuntu Security CVE Bugs Metrics API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Ubuntu Security CVE API provides programmatic access to Ubuntu's CVE (Common Vulnerabilities and Exposures) database. It enables querying security notices, CVE details, affected packages, and patch status across Ubuntu releases.\n\nContact Support:\n Name: Ubuntu Security Team",
+      "type": "text/plain"
+    }
+  }
+}

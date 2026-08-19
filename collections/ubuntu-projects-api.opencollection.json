@@ -1,0 +1,71 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Ubuntu Security CVE Bugs Projects API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Projects",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Projects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ubuntu.com/security/projects",
+            "params": [
+              {
+                "name": "ws.op",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Project search query."
+              },
+              {
+                "name": "ws.start",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ws.size",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a collection of projects registered in Launchpad."
+        },
+        {
+          "info": {
+            "name": "Get Project",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ubuntu.com/security/:project_name",
+            "params": [
+              {
+                "name": "project_name",
+                "value": "",
+                "type": "path",
+                "description": "Launchpad project name."
+              }
+            ]
+          },
+          "docs": "Returns details for a specific Launchpad project."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

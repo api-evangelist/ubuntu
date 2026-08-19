@@ -1,0 +1,127 @@
+{
+  "item": [
+    {
+      "id": "f0b8a028-0976-4402-abd3-62c407e4e83a",
+      "name": "Refresh",
+      "description": {
+        "content": "Snap update and refresh operations",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "98a0b390-c167-4da9-a073-ab966d398864",
+          "name": "Refresh Snaps",
+          "request": {
+            "name": "Refresh Snaps",
+            "description": {
+              "content": "Check for and retrieve updates for installed snaps.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "snaps",
+                "refresh"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"context\": [\n    {\n      \"snap-id\": \"<string>\",\n      \"channel\": \"<string>\",\n      \"revision\": \"<integer>\",\n      \"tracking-channel\": \"<string>\"\n    },\n    {\n      \"snap-id\": \"<string>\",\n      \"channel\": \"<string>\",\n      \"revision\": \"<integer>\",\n      \"tracking-channel\": \"<string>\"\n    }\n  ],\n  \"actions\": [\n    {\n      \"action\": \"<string>\",\n      \"snap-id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"channel\": \"<string>\"\n    },\n    {\n      \"action\": \"<string>\",\n      \"snap-id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"channel\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6124314a-eadf-4ed9-8d5c-b49096171cfc",
+              "name": "Refresh results.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "snaps",
+                    "refresh"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"context\": [\n    {\n      \"snap-id\": \"<string>\",\n      \"channel\": \"<string>\",\n      \"revision\": \"<integer>\",\n      \"tracking-channel\": \"<string>\"\n    },\n    {\n      \"snap-id\": \"<string>\",\n      \"channel\": \"<string>\",\n      \"revision\": \"<integer>\",\n      \"tracking-channel\": \"<string>\"\n    }\n  ],\n  \"actions\": [\n    {\n      \"action\": \"<string>\",\n      \"snap-id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"channel\": \"<string>\"\n    },\n    {\n      \"action\": \"<string>\",\n      \"snap-id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"channel\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://ubuntu.com/security",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "419d8626-61d5-4288-a1b5-86fd0dd6d97e",
+    "name": "Ubuntu Security CVE Bugs Refresh API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Ubuntu Security CVE API provides programmatic access to Ubuntu's CVE (Common Vulnerabilities and Exposures) database. It enables querying security notices, CVE details, affected packages, and patch status across Ubuntu releases.\n\nContact Support:\n Name: Ubuntu Security Team",
+      "type": "text/plain"
+    }
+  }
+}

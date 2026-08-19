@@ -1,0 +1,68 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Ubuntu Security CVE Bugs Notices API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Notices",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Security Notices",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ubuntu.com/security/notices.json",
+            "params": [
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Pagination offset."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of notices to return."
+              },
+              {
+                "name": "release",
+                "value": "",
+                "type": "query",
+                "description": "Filter notices by Ubuntu release codename."
+              }
+            ]
+          },
+          "docs": "Returns Ubuntu Security Notices (USN) for published vulnerabilities."
+        },
+        {
+          "info": {
+            "name": "Get Security Notice",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ubuntu.com/security/notices/:notice_id.json",
+            "params": [
+              {
+                "name": "notice_id",
+                "value": "",
+                "type": "path",
+                "description": "Ubuntu Security Notice ID (e.g., USN-6789-1)."
+              }
+            ]
+          },
+          "docs": "Returns details for a specific Ubuntu Security Notice."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

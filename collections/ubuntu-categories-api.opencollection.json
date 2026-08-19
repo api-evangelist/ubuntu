@@ -1,0 +1,35 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Ubuntu Security CVE Bugs Categories API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Categories",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Snap Categories",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ubuntu.com/security/v2/snaps/categories",
+            "headers": [
+              {
+                "name": "Snap-Device-Series",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Returns all available snap categories in the store."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

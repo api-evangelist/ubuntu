@@ -1,0 +1,201 @@
+{
+  "item": [
+    {
+      "id": "fc04e49b-1d4b-4550-a1a8-476b3f46dfd6",
+      "name": "Info",
+      "description": {
+        "content": "Snap information and details",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "20f85646-c798-45e8-8905-3c98e2086f89",
+          "name": "Get Snap Info",
+          "request": {
+            "name": "Get Snap Info",
+            "description": {
+              "content": "Get detailed information about a specific snap and its released revisions.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "snaps",
+                "info",
+                ":snap_name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Comma-separated list of fields to return."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "snap_name",
+                  "description": "(Required) The snap package name."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Snap device series identifier.",
+                "key": "Snap-Device-Series",
+                "value": "16"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "98309561-082c-446b-a187-692081bc3040",
+              "name": "Snap information.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "snaps",
+                    "info",
+                    ":snap_name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "snap_name",
+                      "description": "(Required) The snap package name."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Snap device series identifier.",
+                    "key": "Snap-Device-Series",
+                    "value": "16"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"snap-id\": \"string\",\n  \"default-track\": \"string\",\n  \"snap\": {\n    \"snap-id\": \"string\",\n    \"name\": \"string\",\n    \"title\": \"string\",\n    \"summary\": \"string\",\n    \"description\": \"string\",\n    \"publisher\": {\n      \"id\": \"string\",\n      \"username\": \"string\",\n      \"display-name\": \"string\"\n    },\n    \"channels\": {\n      \"key_0\": {\n        \"channel\": \"string\",\n        \"revision\": 8196,\n        \"version\": \"string\",\n        \"released-at\": \"2026-04-10T08:59:11.774Z\",\n        \"size\": 8312,\n        \"download\": {\n          \"url\": \"https://ivLE.zpwhuNsyxUeUfBusScY1vy-ZNE+Exex-YUw+vD0ULHk6tetuaViTqYU\",\n          \"sha3-384\": \"string\"\n        }\n      }\n    },\n    \"categories\": [\n      {\n        \"name\": \"string\"\n      },\n      {\n        \"name\": \"string\"\n      }\n    ],\n    \"media\": [\n      {\n        \"type\": \"string\",\n        \"url\": \"http://A.jcjbl+f,wOoAwwkJf,ggI8ITzp3zNCHsnBH\",\n        \"width\": 4801,\n        \"height\": 4913\n      },\n      {\n        \"type\": \"string\",\n        \"url\": \"http://VrPSjUYvvbvFXoqtgGchgfsoB.soniHAhYD4YAZeGpSNZaPPBE0iZ6Fzz\",\n        \"width\": 9558,\n        \"height\": 7935\n      }\n    ],\n    \"license\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4baa27cb-5a72-4ace-b92f-0ae50797d28a",
+              "name": "Snap not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "snaps",
+                    "info",
+                    ":snap_name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "snap_name",
+                      "description": "(Required) The snap package name."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Snap device series identifier.",
+                    "key": "Snap-Device-Series",
+                    "value": "16"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://ubuntu.com/security",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "204b4dc8-48a8-4fc5-9772-adb3941c6109",
+    "name": "Ubuntu Security CVE Bugs Info API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Ubuntu Security CVE API provides programmatic access to Ubuntu's CVE (Common Vulnerabilities and Exposures) database. It enables querying security notices, CVE details, affected packages, and patch status across Ubuntu releases.\n\nContact Support:\n Name: Ubuntu Security Team",
+      "type": "text/plain"
+    }
+  }
+}

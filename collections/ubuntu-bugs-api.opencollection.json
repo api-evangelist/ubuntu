@@ -1,0 +1,97 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Ubuntu Security CVE Bugs API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Bugs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Bugs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ubuntu.com/security/bugs",
+            "params": [
+              {
+                "name": "ws.op",
+                "value": "",
+                "type": "query",
+                "description": "Named operation to perform."
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Filter bugs by status."
+              },
+              {
+                "name": "ws.start",
+                "value": "",
+                "type": "query",
+                "description": "Starting offset for pagination."
+              },
+              {
+                "name": "ws.size",
+                "value": "",
+                "type": "query",
+                "description": "Number of items per page."
+              }
+            ]
+          },
+          "docs": "Returns a collection of bugs tracked in Launchpad."
+        },
+        {
+          "info": {
+            "name": "Get Bug",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ubuntu.com/security/bugs/:bug_id",
+            "params": [
+              {
+                "name": "bug_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique bug identifier."
+              }
+            ]
+          },
+          "docs": "Returns details for a specific Launchpad bug."
+        },
+        {
+          "info": {
+            "name": "Update Bug",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://ubuntu.com/security/bugs/:bug_id",
+            "params": [
+              {
+                "name": "bug_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique bug identifier."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a bug's fields such as title, description, or status."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

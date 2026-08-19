@@ -1,0 +1,161 @@
+{
+  "item": [
+    {
+      "id": "acaaf71e-f970-4247-b7c3-55f11e5ece81",
+      "name": "Packages",
+      "description": {
+        "content": "Distribution package management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f59c7d36-c4a6-4e34-94c0-af59439b7c5a",
+          "name": "Get Source Package",
+          "request": {
+            "name": "Get Source Package",
+            "description": {
+              "content": "Returns details for a specific Ubuntu source package.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ubuntu",
+                "+source",
+                ":source_package_name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "source_package_name",
+                  "description": "(Required) Source package name."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e9ae3777-6cad-4a6e-a89c-06ef58292cb5",
+              "name": "Source package details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ubuntu",
+                    "+source",
+                    ":source_package_name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "source_package_name",
+                      "description": "(Required) Source package name."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"title\": \"string\",\n  \"web_link\": \"https://KBsSDEfponjXJMdSuoOEuoBTDUSNxPmjl.qvgr32iSgny1R4AXxGdTp3h07ACPf5n+Qst-n-Xb\",\n  \"self_link\": \"https://BlKolbaymLeieAUCnsuvglnDTCHwc.sntxtRqFfzfKVSgI.dgDnxzD3DGixzjIkb42Si5xtrr0J705BkOW\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "48e497a9-e774-46cc-94ef-68737ab87c14",
+              "name": "Source package not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ubuntu",
+                    "+source",
+                    ":source_package_name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "source_package_name",
+                      "description": "(Required) Source package name."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://ubuntu.com/security",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "d64717db-5640-430b-a457-972085301382",
+    "name": "Ubuntu Security CVE Bugs Packages API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Ubuntu Security CVE API provides programmatic access to Ubuntu's CVE (Common Vulnerabilities and Exposures) database. It enables querying security notices, CVE details, affected packages, and patch status across Ubuntu releases.\n\nContact Support:\n Name: Ubuntu Security Team",
+      "type": "text/plain"
+    }
+  }
+}

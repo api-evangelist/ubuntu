@@ -1,0 +1,33 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Ubuntu Security CVE Bugs Refresh API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Refresh",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Refresh Snaps",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://ubuntu.com/security/v2/snaps/refresh",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Check for and retrieve updates for installed snaps."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

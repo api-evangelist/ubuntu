@@ -1,0 +1,49 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Ubuntu Security CVE Bugs Metrics API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Metrics",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Snap Metrics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ubuntu.com/security/v2/metrics",
+            "params": [
+              {
+                "name": "snap_name",
+                "value": "",
+                "type": "query",
+                "description": "Filter metrics by snap name."
+              },
+              {
+                "name": "start",
+                "value": "",
+                "type": "query",
+                "description": "Start date for metrics range."
+              },
+              {
+                "name": "end",
+                "value": "",
+                "type": "query",
+                "description": "End date for metrics range."
+              }
+            ]
+          },
+          "docs": "Returns usage and install metrics for snaps."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
