@@ -39,6 +39,11 @@ apis:
   tags:
   - Enterprise
   - Security
+  - Subscription
+  - Support
+  tags_raw:
+  - Enterprise
+  - Security
   - Subscriptions
   - Support
   properties:
@@ -91,6 +96,11 @@ apis:
   humanURL: https://maas.io/
   baseURL: https://maas.io/docs/api
   tags:
+  - Bare Metal
+  - Cloud
+  - Infrastructure
+  - Provisioning
+  tags_raw:
   - Bare-Metal
   - Cloud
   - Infrastructure
@@ -110,6 +120,11 @@ apis:
   humanURL: https://juju.is/
   baseURL: wss://[controller-address]:17070/api
   tags:
+  - Automation
+  - Deployment
+  - DevOps
+  - Orchestration
+  tags_raw:
   - Automation
   - Deployment
   - Devops
@@ -479,6 +494,8 @@ apis:
   humanURL: https://launchpad.net/
   baseURL: https://api.launchpad.net/1.0
   tags:
+  - Project
+  tags_raw:
   - Projects
   properties:
   - type: OpenAPI
@@ -594,6 +611,16 @@ maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
 tags:
+  - Cloud
+  - Containers
+  - DevOps
+  - Enterprise
+  - Linux
+  - Security
+  - Ubuntu
+  - Package Management
+  - Open-Source
+tags_raw:
   - Cloud
   - Containers
   - Devops
