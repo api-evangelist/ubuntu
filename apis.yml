@@ -3,6 +3,17 @@ description: >-
   Collection of APIs and services provided by Canonical for Ubuntu and related products. Includes the Snap Store API for
   package management, Launchpad API for project hosting and bug tracking, Ubuntu Security CVE API for vulnerability
   intelligence, and enterprise services including Ubuntu Pro, MAAS, Juju, and Landscape.
+deliveryModel:
+  model: unknown
+  open_source: false
+  commercial: false
+  callable_host: true
+  label: Delivery model not determined — needs a product licence on record
+  confidence: low
+  source:
+  - openapi
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: paid
   onboarding: self-serve
