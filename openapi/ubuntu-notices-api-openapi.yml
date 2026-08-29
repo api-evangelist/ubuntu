@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Ubuntu Security CVE Bugs Notices API
+  title: Ubuntu Security CVE Notices API
   description: The Ubuntu Security CVE API provides programmatic access to Ubuntu's CVE (Common Vulnerabilities and Exposures) database. It enables querying security notices, CVE details, affected packages, and patch status across Ubuntu releases.
   version: 1.0.0
   contact:

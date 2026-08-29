@@ -1,36 +1,45 @@
 {
   "provider": "ubuntu",
   "sources": [
-    "ubuntu-bugs-api-openapi.yml",
-    "ubuntu-categories-api-openapi.yml",
-    "ubuntu-cves-api-openapi.yml",
-    "ubuntu-distributions-api-openapi.yml",
-    "ubuntu-info-api-openapi.yml",
-    "ubuntu-metrics-api-openapi.yml",
-    "ubuntu-notices-api-openapi.yml",
-    "ubuntu-packages-api-openapi.yml",
-    "ubuntu-people-api-openapi.yml",
-    "ubuntu-projects-api-openapi.yml",
-    "ubuntu-refresh-api-openapi.yml",
-    "ubuntu-search-api-openapi.yml"
+    "_original/ubuntu-cve-openapi.yml",
+    "_original/ubuntu-launchpad-openapi.yml",
+    "_original/ubuntu-snap-store-openapi.yml"
   ],
   "outputs": [
-    "ubuntu-bugs-api-openapi.yml",
-    "ubuntu-categories-api-openapi.yml",
     "ubuntu-cves-api-openapi.yml",
-    "ubuntu-distributions-api-openapi.yml",
-    "ubuntu-info-api-openapi.yml",
-    "ubuntu-metrics-api-openapi.yml",
     "ubuntu-notices-api-openapi.yml",
+    "ubuntu-bugs-api-openapi.yml",
+    "ubuntu-distributions-api-openapi.yml",
     "ubuntu-packages-api-openapi.yml",
     "ubuntu-people-api-openapi.yml",
     "ubuntu-projects-api-openapi.yml",
+    "ubuntu-categories-api-openapi.yml",
+    "ubuntu-info-api-openapi.yml",
+    "ubuntu-metrics-api-openapi.yml",
     "ubuntu-refresh-api-openapi.yml",
     "ubuntu-search-api-openapi.yml"
   ],
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (3 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "ubuntu-cve-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "ubuntu-launchpad-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "ubuntu-snap-store-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0"
+  ],
+  "skipped": [
+    "ubuntu-bugs-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "ubuntu-categories-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "ubuntu-cves-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "ubuntu-distributions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "ubuntu-info-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "ubuntu-metrics-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "ubuntu-notices-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "ubuntu-packages-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "ubuntu-people-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "ubuntu-projects-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "ubuntu-refresh-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "ubuntu-search-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
