@@ -107,7 +107,7 @@ apis:
   humanURL: https://maas.io/
   baseURL: https://maas.io/docs/api
   tags:
-  - Bare Metal
+  - Bare-Metal
   - Cloud
   - Infrastructure
   - Provisioning
@@ -133,7 +133,7 @@ apis:
   tags:
   - Automation
   - Deployment
-  - DevOps
+  - Devops
   - Orchestration
   tags_raw:
   - Automation
@@ -624,7 +624,7 @@ maintainers:
 tags:
   - Cloud
   - Containers
-  - DevOps
+  - Devops
   - Enterprise
   - Linux
   - Security
