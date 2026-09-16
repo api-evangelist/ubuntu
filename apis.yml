@@ -227,45 +227,6 @@ apis:
     url: examples/ubuntu-cve-list-example.json
   - type: JSONSchema
     url: json-schema/ubuntu-cve-schema.json
-- aid: ubuntu:ubuntu-cves-api
-  name: Ubuntu CVEs API
-  description: CVE security vulnerabilities
-  humanURL: https://launchpad.net/
-  baseURL: https://api.launchpad.net/1.0
-  tags:
-  - CVEs
-  properties:
-  - type: OpenAPI
-    url: openapi/ubuntu-cves-api-openapi.yml
-  - type: Documentation
-    url: https://launchpad.net/+apidoc/
-  - type: Documentation
-    url: >-
-      https://documentation.ubuntu.com/launchpad/user/explanation/launchpad-api/launchpad-web-service/
-  - type: Authentication
-    url: https://help.launchpad.net/API/Uses
-  - type: WADL
-    url: https://api.launchpad.net/devel
-  - type: Documentation
-    url: https://snapcraft.io/docs/snapcraft-store-api
-  - type: Documentation
-    url: https://api.snapcraft.io/docs/
-  - type: Dashboard
-    url: https://snapcraft.io/account
-  - type: DeveloperPortal
-    url: https://snapcraft.io/docs
-  - type: Examples
-    url: examples/ubuntu-snap-search-example.json
-  - type: JSONSchema
-    url: json-schema/ubuntu-snap-schema.json
-  - type: Documentation
-    url: https://ubuntu.com/security/api
-  - type: RSS
-    url: https://ubuntu.com/security/notices/rss.xml
-  - type: Examples
-    url: examples/ubuntu-cve-list-example.json
-  - type: JSONSchema
-    url: json-schema/ubuntu-cve-schema.json
 - aid: ubuntu:ubuntu-distributions-api
   name: Ubuntu Distributions API
   description: Ubuntu distribution resources
@@ -619,6 +580,45 @@ apis:
     url: examples/ubuntu-cve-list-example.json
   - type: JSONSchema
     url: json-schema/ubuntu-cve-schema.json
+- aid: ubuntu:ubuntu-cv-es-api
+  name: Ubuntu CV Es API
+  description: CVE security vulnerabilities
+  humanURL: https://ubuntu.com/pro
+  baseURL: https://contracts.canonical.com/
+  tags:
+  - CV Es
+  properties:
+  - type: OpenAPI
+    url: openapi/ubuntu-cv-es-api-openapi.yml
+  - type: Documentation
+    url: https://launchpad.net/+apidoc/
+  - type: Documentation
+    url: >-
+      https://documentation.ubuntu.com/launchpad/user/explanation/launchpad-api/launchpad-web-service/
+  - type: Authentication
+    url: https://help.launchpad.net/API/Uses
+  - type: WADL
+    url: https://api.launchpad.net/devel
+  - type: Documentation
+    url: https://snapcraft.io/docs/snapcraft-store-api
+  - type: Documentation
+    url: https://api.snapcraft.io/docs/
+  - type: Dashboard
+    url: https://snapcraft.io/account
+  - type: DeveloperPortal
+    url: https://snapcraft.io/docs
+  - type: Examples
+    url: examples/ubuntu-snap-search-example.json
+  - type: JSONSchema
+    url: json-schema/ubuntu-snap-schema.json
+  - type: Documentation
+    url: https://ubuntu.com/security/api
+  - type: RSS
+    url: https://ubuntu.com/security/notices/rss.xml
+  - type: Examples
+    url: examples/ubuntu-cve-list-example.json
+  - type: JSONSchema
+    url: json-schema/ubuntu-cve-schema.json
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
@@ -632,7 +632,6 @@ tags:
   - Ubuntu
   - Package Management
   - Open-Source
-  - Developer Tools
 tags_raw:
   - Cloud
   - Containers
