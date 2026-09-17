@@ -580,16 +580,16 @@ apis:
     url: examples/ubuntu-cve-list-example.json
   - type: JSONSchema
     url: json-schema/ubuntu-cve-schema.json
-- aid: ubuntu:ubuntu-cv-es-api
+- aid: ubuntu:ubuntu-cves-api
   name: Ubuntu CV Es API
   description: CVE security vulnerabilities
   humanURL: https://ubuntu.com/pro
   baseURL: https://contracts.canonical.com/
   tags:
-  - CV Es
+  - CVEs
   properties:
   - type: OpenAPI
-    url: openapi/ubuntu-cv-es-api-openapi.yml
+    url: openapi/ubuntu-cves-api-openapi.yml
   - type: Documentation
     url: https://launchpad.net/+apidoc/
   - type: Documentation
