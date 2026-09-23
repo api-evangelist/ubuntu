@@ -19,19 +19,23 @@
     "ubuntu-refresh-api-openapi.yml",
     "ubuntu-search-api-openapi.yml"
   ],
-  "archived": [],
+  "archived": [
+    "deleted 1 superseded output(s) from the previous generation"
+  ],
   "errors": [],
   "warnings": [],
   "notes": [
     "sourced from openapi/_original/ (3 archived document(s)); previously refined output at the top level was skipped rather than re-split",
     "ubuntu-cve-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
     "ubuntu-launchpad-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
-    "ubuntu-snap-store-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0"
+    "ubuntu-snap-store-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "superseded outputs removed: ubuntu-cv-es-api-openapi.yml",
+    "apis.yml register: written (+1 apis, 17 total)"
   ],
   "skipped": [
     "ubuntu-bugs-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "ubuntu-categories-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "ubuntu-cves-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "ubuntu-cv-es-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "ubuntu-distributions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "ubuntu-info-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "ubuntu-metrics-api-openapi.yml: previously refined output, superseded by openapi/_original/",

@@ -104,26 +104,6 @@ paths:
           description: CVE not found.
 components:
   schemas:
-    AffectedPackage:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Package name.
-        source:
-          type: string
-          description: Source package name.
-        statuses:
-          type: array
-          items:
-            type: object
-            properties:
-              release_codename:
-                type: string
-              status:
-                type: string
-              description:
-                type: string
     Cve:
       type: object
       properties:
@@ -187,3 +167,23 @@ components:
           type: integer
         total_results:
           type: integer
+    AffectedPackage:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Package name.
+        source:
+          type: string
+          description: Source package name.
+        statuses:
+          type: array
+          items:
+            type: object
+            properties:
+              release_codename:
+                type: string
+              status:
+                type: string
+              description:
+                type: string

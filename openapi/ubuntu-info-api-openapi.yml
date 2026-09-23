@@ -51,28 +51,21 @@ paths:
           description: Snap not found.
 components:
   schemas:
-    Channel:
+    SnapInfo:
       type: object
       properties:
-        channel:
+        name:
           type: string
-        revision:
-          type: integer
-        version:
+        snap-id:
           type: string
-        released-at:
+        channel-map:
+          type: array
+          items:
+            type: object
+        default-track:
           type: string
-          format: date-time
-        size:
-          type: integer
-        download:
-          type: object
-          properties:
-            url:
-              type: string
-              format: uri
-            sha3-384:
-              type: string
+        snap:
+          $ref: '#/components/schemas/Snap'
     Snap:
       type: object
       properties:
@@ -127,18 +120,25 @@ components:
                 type: integer
         license:
           type: string
-    SnapInfo:
+    Channel:
       type: object
       properties:
-        name:
+        channel:
           type: string
-        snap-id:
+        revision:
+          type: integer
+        version:
           type: string
-        channel-map:
-          type: array
-          items:
-            type: object
-        default-track:
+        released-at:
           type: string
-        snap:
-          $ref: '#/components/schemas/Snap'
+          format: date-time
+        size:
+          type: integer
+        download:
+          type: object
+          properties:
+            url:
+              type: string
+              format: uri
+            sha3-384:
+              type: string

@@ -73,19 +73,6 @@ paths:
           description: Notice not found.
 components:
   schemas:
-    NoticeListResponse:
-      type: object
-      properties:
-        notices:
-          type: array
-          items:
-            $ref: '#/components/schemas/Notice'
-        offset:
-          type: integer
-        limit:
-          type: integer
-        total_results:
-          type: integer
     Notice:
       type: object
       properties:
@@ -121,3 +108,16 @@ components:
                 type: string
               release:
                 type: string
+    NoticeListResponse:
+      type: object
+      properties:
+        notices:
+          type: array
+          items:
+            $ref: '#/components/schemas/Notice'
+        offset:
+          type: integer
+        limit:
+          type: integer
+        total_results:
+          type: integer

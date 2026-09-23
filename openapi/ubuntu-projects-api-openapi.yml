@@ -78,6 +78,17 @@ paths:
           description: Project not found.
 components:
   schemas:
+    ProjectCollection:
+      type: object
+      properties:
+        total_size:
+          type: integer
+        start:
+          type: integer
+        entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/Project'
     Project:
       type: object
       properties:
@@ -107,17 +118,6 @@ components:
         self_link:
           type: string
           format: uri
-    ProjectCollection:
-      type: object
-      properties:
-        total_size:
-          type: integer
-        start:
-          type: integer
-        entries:
-          type: array
-          items:
-            $ref: '#/components/schemas/Project'
   securitySchemes:
     OAuth1:
       type: http
