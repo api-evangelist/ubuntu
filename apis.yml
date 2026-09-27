@@ -5,14 +5,19 @@ description: >-
   intelligence, and enterprise services including Ubuntu Pro, MAAS, Juju, and Landscape.
 deliveryModel:
   model: unknown
-  open_source: false
+  license_evidence:
+    not_product:
+    - canonical/maas
+    - juju/juju
+  open_source: unknown
   commercial: false
   callable_host: true
   label: Delivery model not determined — needs a product licence on record
   confidence: low
   source:
   - openapi
-  generated: '2026-08-28'
+  - repository-not-product
+  generated: '2026-09-25'
   method: derived
 accessModel:
   pricing: paid
@@ -631,7 +636,7 @@ tags:
   - Security
   - Ubuntu
   - Package Management
-  - Open-Source
+  - Open Source
 tags_raw:
   - Cloud
   - Containers
@@ -642,6 +647,7 @@ tags_raw:
   - Ubuntu
   - Package Management
   - Open Source
+  - Open-Source
 properties:
   - url: rules/ubuntu-rules.yml
     type: SpectralRules
