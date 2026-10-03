@@ -124,19 +124,6 @@ components:
                 type: string
               description:
                 type: string
-    CveListResponse:
-      type: object
-      properties:
-        cves:
-          type: array
-          items:
-            $ref: '#/components/schemas/Cve'
-        offset:
-          type: integer
-        limit:
-          type: integer
-        total_results:
-          type: integer
     Cve:
       type: object
       properties:
@@ -187,3 +174,16 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/AffectedPackage'
+    CveListResponse:
+      type: object
+      properties:
+        cves:
+          type: array
+          items:
+            $ref: '#/components/schemas/Cve'
+        offset:
+          type: integer
+        limit:
+          type: integer
+        total_results:
+          type: integer

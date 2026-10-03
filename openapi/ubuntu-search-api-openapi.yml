@@ -130,6 +130,13 @@ components:
                 type: integer
         license:
           type: string
+    SnapResult:
+      type: object
+      properties:
+        snap:
+          $ref: '#/components/schemas/Snap'
+        result:
+          type: string
     Channel:
       type: object
       properties:
@@ -152,10 +159,3 @@ components:
               format: uri
             sha3-384:
               type: string
-    SnapResult:
-      type: object
-      properties:
-        snap:
-          $ref: '#/components/schemas/Snap'
-        result:
-          type: string
