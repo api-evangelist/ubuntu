@@ -81,17 +81,6 @@ paths:
           description: Person not found.
 components:
   schemas:
-    PersonCollection:
-      type: object
-      properties:
-        total_size:
-          type: integer
-        start:
-          type: integer
-        entries:
-          type: array
-          items:
-            $ref: '#/components/schemas/Person'
     Person:
       type: object
       properties:
@@ -117,6 +106,17 @@ components:
         self_link:
           type: string
           format: uri
+    PersonCollection:
+      type: object
+      properties:
+        total_size:
+          type: integer
+        start:
+          type: integer
+        entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/Person'
   securitySchemes:
     OAuth1:
       type: http

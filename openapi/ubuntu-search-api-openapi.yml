@@ -76,6 +76,35 @@ paths:
                     type: integer
 components:
   schemas:
+    Channel:
+      type: object
+      properties:
+        channel:
+          type: string
+        revision:
+          type: integer
+        version:
+          type: string
+        released-at:
+          type: string
+          format: date-time
+        size:
+          type: integer
+        download:
+          type: object
+          properties:
+            url:
+              type: string
+              format: uri
+            sha3-384:
+              type: string
+    SnapResult:
+      type: object
+      properties:
+        snap:
+          $ref: '#/components/schemas/Snap'
+        result:
+          type: string
     Snap:
       type: object
       properties:
@@ -130,32 +159,3 @@ components:
                 type: integer
         license:
           type: string
-    SnapResult:
-      type: object
-      properties:
-        snap:
-          $ref: '#/components/schemas/Snap'
-        result:
-          type: string
-    Channel:
-      type: object
-      properties:
-        channel:
-          type: string
-        revision:
-          type: integer
-        version:
-          type: string
-        released-at:
-          type: string
-          format: date-time
-        size:
-          type: integer
-        download:
-          type: object
-          properties:
-            url:
-              type: string
-              format: uri
-            sha3-384:
-              type: string
