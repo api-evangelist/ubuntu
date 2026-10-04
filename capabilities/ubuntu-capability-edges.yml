@@ -1,0 +1,45 @@
+slug: ubuntu
+provider: Ubuntu
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 3
+edges:
+- tag: CVEs
+  spec_file: ubuntu-cves-api-openapi.yml
+  capability_id: BC-620.40
+  capability_id_l1: BC-620
+  capability_name: Vulnerability Management
+  confidence: 0.85
+  evidence: '"programmatic access to Ubuntu''s CVE (Common Vulnerabilities and Exposures) database ...
+    affected packages, and patch status"; schemas AffectedPackage, Cve'
+  reason: Operations expose CVE vulnerability intelligence including affected packages and patch status,
+    which is vulnerability management data.
+- tag: Bugs
+  spec_file: ubuntu-bugs-api-openapi.yml
+  capability_id: BC-4200.50
+  capability_id_l1: BC-4200
+  capability_name: Software Quality Engineering
+  confidence: 0.78
+  evidence: GET /bugs "List Bugs"; PATCH /bugs/{bug_id} "Update Bug"; schemas Bug, BugCollection
+  reason: Launchpad bug tracking — listing and updating software defects — is defect management within
+    software quality engineering.
+- tag: Notices
+  spec_file: ubuntu-notices-api-openapi.yml
+  capability_id: BC-620.40
+  capability_id_l1: BC-620
+  capability_name: Vulnerability Management
+  confidence: 0.72
+  evidence: GET /notices.json "List Security Notices"; description "querying security notices, CVE details,
+    affected packages, and patch status"
+  reason: Ubuntu Security Notices are published vulnerability advisories tied to patch status, supporting
+    vulnerability identification and remediation. Could also be read as security disclosure publishing,
+    hence not maximal confidence.
