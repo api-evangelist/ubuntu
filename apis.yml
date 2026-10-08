@@ -38,6 +38,12 @@ url: https://ubuntu.com
 created: '2024-01-15'
 modified: '2026-05-19'
 common:
+  - type: Plans
+    url: plans/ubuntu-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/ubuntu-rate-limits.yml
+  - type: FinOps
+    url: finops/ubuntu-finops.yml
   - type: CapabilityMap
     url: capabilities/ubuntu-capability-edges.yml
     name: Ubuntu Business Capability Map
