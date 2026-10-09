@@ -131,3 +131,35 @@ plans:
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - free
+  - subscription
+  units: []
+  plans:
+  - name: Ubuntu Pro for Personal Use
+    access: freemium
+    model: free
+    model_how: derived
+    units:
+    - other
+    periods:
+    - year
+  - name: Ubuntu Pro Desktop / Workstation
+    access: other
+    model: subscription
+    model_how: stated
+    units:
+    - other
+    periods:
+    - year
+  - name: Ubuntu Pro Server
+    access: other
+    model: subscription
+    model_how: stated
+    units:
+    - other
+    periods:
+    - year
