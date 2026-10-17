@@ -116,17 +116,6 @@ paths:
                 $ref: '#/components/schemas/Bug'
 components:
   schemas:
-    BugCollection:
-      type: object
-      properties:
-        total_size:
-          type: integer
-        start:
-          type: integer
-        entries:
-          type: array
-          items:
-            $ref: '#/components/schemas/Bug'
     Bug:
       type: object
       properties:
@@ -161,6 +150,17 @@ components:
         self_link:
           type: string
           format: uri
+    BugCollection:
+      type: object
+      properties:
+        total_size:
+          type: integer
+        start:
+          type: integer
+        entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/Bug'
   securitySchemes:
     OAuth1:
       type: http
