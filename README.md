@@ -1,4 +1,4 @@
-# Ubuntu (ubuntu)
+# Ubuntu
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,234 +66,140 @@
 
 Collection of APIs and services provided by Canonical for Ubuntu and related products. Includes the Snap Store API for package management, Launchpad API for project hosting and bug tracking, Ubuntu Security CVE API for vulnerability intelligence, and enterprise services including Ubuntu Pro, MAAS, Juju, and Landscape.
 
-**APIs.json:** [https://ubuntu.com](https://ubuntu.com)
+**Areas:** Cloud · Containers · DevOps · Enterprise · Linux · Security · Ubuntu · Package Management · Open Source
 
-## Tags
+## Ubuntu on APIs.io
 
-- Cloud
-- Containers
-- Devops
-- Enterprise
-- Linux
-- Security
-- Ubuntu
-- Package Management
-- Open Source
+Everything profiled for Ubuntu is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/ubuntu/](https://apis.io/providers/ubuntu/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (17)
 
-- **Created:** 2024-01-15
-- **Modified:** 2026-05-19
+- [Ubuntu Pro API](https://apis.io/apis/ubuntu/ubuntu-pro-api/) — API for managing Ubuntu Pro subscriptions and entitlements, including security patches, compliance tooling, and extended security maintenance.
+- [Ubuntu Archive API](https://apis.io/apis/ubuntu/ubuntu-archive-api/) — Access to Ubuntu package repositories and archive information via the Launchpad API's Ubuntu distribution endpoint.
+- [Landscape API](https://apis.io/apis/ubuntu/landscape-api/) — Systems management API for Ubuntu servers enabling automated patch management, compliance reporting, and fleet monitoring for Ubuntu deployments.
+- [MAAS API](https://apis.io/apis/ubuntu/maas-api/) — Metal as a Service API for physical server provisioning, enabling automated bare-metal infrastructure management and cloud-like workflows.
+- [Juju API](https://apis.io/apis/ubuntu/juju-api/) — Application modeling and deployment API supporting automated deployment, scaling, and management of applications across clouds and bare metal.
+- [Ubuntu Bugs API](https://apis.io/apis/ubuntu/ubuntu-bugs-api/) — Bug tracking and management
+- [Ubuntu Categories API](https://apis.io/apis/ubuntu/ubuntu-categories-api/) — Snap category listings
+- [Ubuntu Distributions API](https://apis.io/apis/ubuntu/ubuntu-distributions-api/) — Ubuntu distribution resources
+- [Ubuntu Info API](https://apis.io/apis/ubuntu/ubuntu-info-api/) — Snap information and details
+- [Ubuntu Metrics API](https://apis.io/apis/ubuntu/ubuntu-metrics-api/) — Snap usage metrics
+- [Ubuntu Notices API](https://apis.io/apis/ubuntu/ubuntu-notices-api/) — Ubuntu Security Notices
+- [Ubuntu Packages API](https://apis.io/apis/ubuntu/ubuntu-packages-api/) — Distribution package management
+- [Ubuntu People API](https://apis.io/apis/ubuntu/ubuntu-people-api/) — People and team resources
+- [Ubuntu Projects API](https://apis.io/apis/ubuntu/ubuntu-projects-api/) — Open-source project resources
+- [Ubuntu Refresh API](https://apis.io/apis/ubuntu/ubuntu-refresh-api/) — Snap update and refresh operations
+- [Ubuntu Search API](https://apis.io/apis/ubuntu/ubuntu-search-api/) — Snap search and discovery
+- [Ubuntu CV Es API](https://apis.io/apis/ubuntu/ubuntu-cves-api/) — CVE security vulnerabilities
 
-## APIs
+### Published properties
 
-### Launchpad API
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-REST API for Launchpad, Ubuntu's project hosting and collaboration platform. Provides access to people, projects, bugs, packages, branches, and distributions. Uses OAuth 1.0a authentication and WADL-described resources.
+#### Agentic access (1)
 
-- **Human URL:** [https://launchpad.net/](https://launchpad.net/)
-- **Base URL:** `https://api.launchpad.net/1.0`
+Which operations an agent can call, which act, and which need a human in the loop.
 
-#### Tags
+- [Ubuntu Agentic Access](https://apis.io/agentic-access/ubuntu/ubuntu-agentic-access/)
 
-- Bugs
-- Collaboration
-- Distributions
-- Packages
-- Projects
-- Open Source
+#### JSON Schema (2)
 
-#### Properties
+The data models the API reads and writes.
 
-- [Documentation](https://launchpad.net/+apidoc/)
-- [Documentation](https://documentation.ubuntu.com/launchpad/user/explanation/launchpad-api/launchpad-web-service/)
-- [Authentication](https://help.launchpad.net/API/Uses)
-- [Wadl](https://api.launchpad.net/devel)
-- [OpenAPI](openapi/ubuntu-launchpad-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/ubuntu-launchpad.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/ubuntu-launchpad.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Ubuntu CVE](https://apis.io/schemas/ubuntu/ubuntu-cve/)
+- [Snap Package](https://apis.io/schemas/ubuntu/ubuntu-snap/)
 
-### Ubuntu Pro API
+#### JSON Structure (1)
 
-API for managing Ubuntu Pro subscriptions and entitlements, including security patches, compliance tooling, and extended security maintenance.
+Data models expressed in JSON Structure.
 
-- **Human URL:** [https://ubuntu.com/pro](https://ubuntu.com/pro)
-- **Base URL:** `https://contracts.canonical.com/`
+- [Ubuntu Snap Structure](https://apis.io/json-structure/ubuntu/ubuntu-snap-structure/)
 
-#### Tags
+#### JSON-LD (1)
 
-- Enterprise
-- Security
-- Subscriptions
-- Support
+Linked-data contexts for the provider's vocabulary.
 
-#### Properties
+- [Ubuntu Context](https://apis.io/jsonld/ubuntu/ubuntu-context/)
 
-- [Documentation](https://canonical-ubuntu-pro-client.readthedocs-hosted.com/)
-- [Authentication](https://ubuntu.com/pro/dashboard)
-- [Postman Collection](collections/ubuntu-cve.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/ubuntu-cve.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/ubuntu-launchpad.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/ubuntu-launchpad.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/ubuntu-snap-store.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/ubuntu-snap-store.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Vocabulary (1)
 
-### Snap Store API
+The provider's domain terms, defined.
 
-API for the Snap Store for publishing and managing snap packages. Enables snap search, package info retrieval, refresh operations, category listings, and usage metrics for IoT and desktop deployments.
+- [Ubuntu / Canonical API Vocabulary](https://apis.io/vocabularies/ubuntu/ubuntu-vocabulary/)
 
-- **Human URL:** [https://snapcraft.io/](https://snapcraft.io/)
-- **Base URL:** `https://api.snapcraft.io`
+#### Examples (2)
 
-#### Tags
+Example requests and responses.
 
-- Applications
-- Distribution
-- Packages
-- Snaps
-- Package Management
+- [Ubuntu Cve List Example](https://apis.io/examples/ubuntu/ubuntu-cve-list-example/)
+- [Ubuntu Snap Search Example](https://apis.io/examples/ubuntu/ubuntu-snap-search-example/)
 
-#### Properties
+#### Collections (15)
 
-- [Documentation](https://snapcraft.io/docs/snapcraft-store-api)
-- [Documentation](https://api.snapcraft.io/docs/)
-- [Dashboard](https://snapcraft.io/account)
-- [Developer  Portal](https://snapcraft.io/docs)
-- [OpenAPI](openapi/ubuntu-snap-store-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/ubuntu-snap-store.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/ubuntu-snap-store.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Example](examples/ubuntu-snap-search-example.json)
-- [JSON Schema](json-schema/ubuntu-snap-schema.json) — [JSON Schema](https://json-schema.org/specification)
+Postman and Open Collection request collections.
 
-### Ubuntu Archive API
+- [Ubuntu Security CVE Bugs API](https://apis.io/collections/ubuntu/open-ubuntu-bugs-api/)
+- [Ubuntu Security CVE Bugs Categories API](https://apis.io/collections/ubuntu/open-ubuntu-categories-api/)
+- [Ubuntu Security CVE API](https://apis.io/collections/ubuntu/open-ubuntu-cve/)
+- [Ubuntu Security CVE Bugs CVEs API](https://apis.io/collections/ubuntu/open-ubuntu-cves-api/)
+- [Ubuntu Security CVE Bugs Distributions API](https://apis.io/collections/ubuntu/open-ubuntu-distributions-api/)
+- [Ubuntu Security CVE Bugs Info API](https://apis.io/collections/ubuntu/open-ubuntu-info-api/)
+- [Launchpad REST API](https://apis.io/collections/ubuntu/open-ubuntu-launchpad/)
+- [Ubuntu Security CVE Bugs Metrics API](https://apis.io/collections/ubuntu/open-ubuntu-metrics-api/)
+- [Ubuntu Security CVE Bugs Notices API](https://apis.io/collections/ubuntu/open-ubuntu-notices-api/)
+- [Ubuntu Security CVE Bugs Packages API](https://apis.io/collections/ubuntu/open-ubuntu-packages-api/)
+- [Ubuntu Security CVE Bugs People API](https://apis.io/collections/ubuntu/open-ubuntu-people-api/)
+- [Ubuntu Security CVE Bugs Projects API](https://apis.io/collections/ubuntu/open-ubuntu-projects-api/)
+- [Ubuntu Security CVE Bugs Refresh API](https://apis.io/collections/ubuntu/open-ubuntu-refresh-api/)
+- [Ubuntu Security CVE Bugs Search API](https://apis.io/collections/ubuntu/open-ubuntu-search-api/)
+- [Snap Store Devices API](https://apis.io/collections/ubuntu/open-ubuntu-snap-store/)
 
-Access to Ubuntu package repositories and archive information via the Launchpad API's Ubuntu distribution endpoint.
+#### Governance rules (2)
 
-- **Human URL:** [https://archive.ubuntu.com/](https://archive.ubuntu.com/)
-- **Base URL:** `https://api.launchpad.net/devel/ubuntu`
+Spectral rulesets for the provider's contracts.
 
-#### Tags
+- [Ubuntu — jsonschema rules](https://apis.io/rules/ubuntu/ubuntu-jsonschema-spectral-rules/)
+- [Ubuntu API Rules](https://apis.io/rules/ubuntu/ubuntu-rules/)
 
-- Archives
-- Packages
-- Releases
-- Repositories
+#### Security (2)
 
-#### Properties
+Authentication, trust centre, and vulnerability disclosure.
 
-- [Documentation](https://wiki.ubuntu.com/ArchiveAdministration)
-- [Package  Search](https://packages.ubuntu.com/)
-- [Postman Collection](collections/ubuntu-cve.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/ubuntu-cve.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/ubuntu-launchpad.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/ubuntu-launchpad.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/ubuntu-snap-store.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/ubuntu-snap-store.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Ubuntu Authentication](https://apis.io/security/ubuntu/ubuntu-authentication/)
+- [Ubuntu Domain Security](https://apis.io/security/ubuntu/ubuntu-domain-security/)
 
-### Landscape API
+#### Plans and pricing (1)
 
-Systems management API for Ubuntu servers enabling automated patch management, compliance reporting, and fleet monitoring for Ubuntu deployments.
+Published plans, tiers and prices.
 
-- **Human URL:** [https://ubuntu.com/landscape](https://ubuntu.com/landscape)
-- **Base URL:** `https://landscape.canonical.com/api/`
+- [Ubuntu Plans Pricing](https://apis.io/plans/ubuntu/ubuntu-plans-pricing/)
 
-#### Tags
+#### Rate limits (1)
 
-- Automation
-- Management
-- Monitoring
-- Servers
+Published request limits.
 
-#### Properties
+- [Ubuntu Rate Limits](https://apis.io/rate-limits/ubuntu/ubuntu-rate-limits/)
 
-- [Documentation](https://ubuntu.com/landscape/docs/api)
-- [Authentication](https://ubuntu.com/landscape/docs/api-authentication)
-- [Postman Collection](collections/ubuntu-cve.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/ubuntu-cve.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/ubuntu-launchpad.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/ubuntu-launchpad.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/ubuntu-snap-store.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/ubuntu-snap-store.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### FinOps (1)
 
-### MAAS API
+What the API costs to run, by operation.
 
-Metal as a Service API for physical server provisioning, enabling automated bare-metal infrastructure management and cloud-like workflows.
+- [Ubuntu Finops](https://apis.io/finops/ubuntu/ubuntu-finops/)
 
-- **Human URL:** [https://maas.io/](https://maas.io/)
-- **Base URL:** `https://maas.io/docs/api`
+## API Evangelist rating
 
-#### Tags
+**Unrated** — no public website could be reached for this company, so there was almost nothing to measure and nothing a reader could check.
 
-- Bare-Metal
-- Cloud
-- Infrastructure
-- Provisioning
+This is not a score of zero. No rating is published for this company. If that is wrong because something public exists that we missed, say so on this repository or email [info@apievangelist.com](mailto:info@apievangelist.com) and it will be re-run — free, and no justification needed.
 
-#### Properties
+## How this profile is made
 
-- [Documentation](https://maas.io/docs/api)
-- [Git Hub](https://github.com/canonical/maas)
-- [Postman Collection](collections/ubuntu-cve.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/ubuntu-cve.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/ubuntu-launchpad.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/ubuntu-launchpad.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/ubuntu-snap-store.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/ubuntu-snap-store.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
 
-### Juju API
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Ubuntu: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
 
-Application modeling and deployment API supporting automated deployment, scaling, and management of applications across clouds and bare metal.
+## Open an issue
 
-- **Human URL:** [https://juju.is/](https://juju.is/)
-- **Base URL:** `wss://[controller-address]:17070/api`
-
-#### Tags
-
-- Automation
-- Deployment
-- Devops
-- Orchestration
-
-#### Properties
-
-- [Documentation](https://juju.is/docs/juju/api)
-- [Git Hub](https://github.com/juju/juju)
-- [Postman Collection](collections/ubuntu-cve.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/ubuntu-cve.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/ubuntu-launchpad.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/ubuntu-launchpad.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/ubuntu-snap-store.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/ubuntu-snap-store.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Ubuntu CVE API
-
-API for Ubuntu security notices and CVE vulnerability information, enabling programmatic queries of the Ubuntu CVE database including affected packages and patch status across Ubuntu releases.
-
-- **Human URL:** [https://ubuntu.com/security/cves](https://ubuntu.com/security/cves)
-- **Base URL:** `https://ubuntu.com/security`
-
-#### Tags
-
-- Cve
-- Patches
-- Security
-- Vulnerabilities
-
-#### Properties
-
-- [Documentation](https://ubuntu.com/security/api)
-- [R S S](https://ubuntu.com/security/notices/rss.xml)
-- [OpenAPI](openapi/ubuntu-cve-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/ubuntu-cve.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/ubuntu-cve.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Example](examples/ubuntu-cve-list-example.json)
-- [JSON Schema](json-schema/ubuntu-cve-schema.json) — [JSON Schema](https://json-schema.org/specification)
-
-## Common Properties
-
-- [LinkedIn](https://www.linkedin.com/showcase/ubuntu-linux)
-
-## Maintainers
-
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/ubuntu/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
